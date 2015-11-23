@@ -14,23 +14,25 @@ public partial class Test : System.Web.UI.Page
     //Ei toimi tällä hetkellä
     protected void Page_Load(object sender, EventArgs e)
     {
-        HttpResponse<string> response = Unirest.get("https://omgvamp-hearthstone-v1.p.mashape.com/cards")
-        .header("X-Mashape-Key", "????")
+        HttpResponse<string> response = Unirest.get("https://omgvamp-hearthstone-v1.p.mashape.com/cards?collectible=1")
+        .header("X-Mashape-Key", "???")
         .asJson<string>();
 
+        CardCollection plaa = new CardCollection();
+        plaa = JsonConvert.DeserializeObject<CardCollection>(response.Body);
 
-        //JavaScriptSerializer ser = new JavaScriptSerializer();
-        //CardDeck plaa = ser.Deserialize<CardDeck>(response.Body);
+        List<Card> cards = new List<Card>();
+        cards.AddRange(plaa.basic);
+        cards.AddRange(plaa.classic);
+        cards.AddRange(plaa.naxxramas);
+        cards.AddRange(plaa.gvg);
+        cards.AddRange(plaa.blackrock);
+        cards.AddRange(plaa.grandTournament);
+        cards.AddRange(plaa.leagueOfExplorers);
+      
+          
 
-        CardDeck plaa = new CardDeck();
-        plaa = JsonConvert.DeserializeObject<CardDeck>(response.Body);
-
-        //IEnumerable<string> sorsa = response as IEnumerable<string>;
-        Label1.Text = response.Body;
-        
-        //for ()
-
-        //Grid.DataSource = sorsa;
-
+        Grid.DataSource = cards as IEnumerable<Card>;
+        Grid.DataBind();
     }
 }
