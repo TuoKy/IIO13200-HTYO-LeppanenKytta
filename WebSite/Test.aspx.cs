@@ -11,26 +11,27 @@ using Newtonsoft.Json;
 
 public partial class Test : System.Web.UI.Page
 {
-    //Ei toimi tällä hetkellä
     protected void Page_Load(object sender, EventArgs e)
     {
         HttpResponse<string> response = Unirest.get("https://omgvamp-hearthstone-v1.p.mashape.com/cards?collectible=1")
         .header("X-Mashape-Key", "???")
         .asJson<string>();
 
-        CardCollection plaa = new CardCollection();
-        plaa = JsonConvert.DeserializeObject<CardCollection>(response.Body);
+        CardCollection collection = new CardCollection();
+        collection = JsonConvert.DeserializeObject<CardCollection>(response.Body);
 
         List<Card> cards = new List<Card>();
-        cards.AddRange(plaa.basic);
-        cards.AddRange(plaa.classic);
-        cards.AddRange(plaa.naxxramas);
-        cards.AddRange(plaa.gvg);
-        cards.AddRange(plaa.blackrock);
-        cards.AddRange(plaa.grandTournament);
-        cards.AddRange(plaa.leagueOfExplorers);
-      
-          
+        cards.AddRange(collection.basic);
+        cards.AddRange(collection.classic);
+        cards.AddRange(collection.naxxramas);
+        cards.AddRange(collection.gvg);
+        cards.AddRange(collection.blackrock);
+        cards.AddRange(collection.grandTournament);
+        cards.AddRange(collection.leagueOfExplorers);
+
+        DataAccessLayer layer1 = new DataAccessLayer();
+
+        layer1.openConnection(cards);
 
         Grid.DataSource = cards as IEnumerable<Card>;
         Grid.DataBind();

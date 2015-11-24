@@ -11,12 +11,10 @@ public class Card
     public int cost { get; set; }
     public int attack { get; set; }
     public int health { get; set; }
-    public string text { get; set; }
-    public string flavor { get; set; }
-    public string artist { get; set; }
+    public string text { get; set; }  
     public string playerClass { get; set; }
     public string img { get; set; }
-    public string imgGold { get; set; }
+    
 }
 public class CardCollection
 {
