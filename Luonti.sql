@@ -19,16 +19,16 @@ USE `mydb` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Card` (
   `idCard` INT NOT NULL AUTO_INCREMENT COMMENT '',
-  `CardName` VARCHAR(45) NULL COMMENT '',
+  `CardName` VARCHAR(45) NULL UNIQUE COMMENT '',
   `CardSet` VARCHAR(45) NULL COMMENT '',
   `CardType` VARCHAR(45) NULL COMMENT '',
   `CardRarity` VARCHAR(45) NULL COMMENT '',
   `CardCost` INT NULL COMMENT '',
   `CardAttack` INT NULL COMMENT '',
   `CardHealth` INT NULL COMMENT '',
-  `CardText` VARCHAR(45) NULL COMMENT '',
+  `CardText` VARCHAR(256) NULL COMMENT '',
   `CardPlayerClass` VARCHAR(45) NULL COMMENT '',
-  `CardImg` VARCHAR(45) NULL COMMENT '',
+  `CardImg` VARCHAR(256) NULL COMMENT '',
   PRIMARY KEY (`idCard`)  COMMENT '')
 ENGINE = InnoDB;
 
@@ -68,6 +68,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Deck_has_Card` (
   `Deck_idDeck` INT NOT NULL COMMENT '',
   `Card_idCard` INT NOT NULL COMMENT '',
+  `CardCount` INT NOT NULL COMMENT '',
   PRIMARY KEY (`Deck_idDeck`, `Card_idCard`)  COMMENT '',
   INDEX `fk_Deck_has_Card_Card1_idx` (`Card_idCard` ASC)  COMMENT '',
   INDEX `fk_Deck_has_Card_Deck_idx` (`Deck_idDeck` ASC)  COMMENT '',

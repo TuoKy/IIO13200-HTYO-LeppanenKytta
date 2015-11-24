@@ -14,7 +14,7 @@ public partial class Test : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         HttpResponse<string> response = Unirest.get("https://omgvamp-hearthstone-v1.p.mashape.com/cards?collectible=1")
-        .header("X-Mashape-Key", "???")
+        .header("X-Mashape-Key", "Y6G2Ve8iAOmshQFq4sGVgvBtI1HVp1CVLrWjsnPikTu4oqy2EK")
         .asJson<string>();
 
         CardCollection collection = new CardCollection();
@@ -30,8 +30,15 @@ public partial class Test : System.Web.UI.Page
         cards.AddRange(collection.leagueOfExplorers);
 
         DataAccessLayer layer1 = new DataAccessLayer();
-
-        layer1.openConnection(cards);
+        try
+        {
+            layer1.openConnection(cards);
+        }
+        catch (Exception)
+        {
+            System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AlertBox", "alert('Kortit jo kannassa');", true);
+        }
+        
 
         Grid.DataSource = cards as IEnumerable<Card>;
         Grid.DataBind();

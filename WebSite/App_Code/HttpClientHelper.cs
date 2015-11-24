@@ -42,11 +42,6 @@ namespace unirest_net.http
                 msg.Headers.Add(header.Key, header.Value);
             }
 
-            if (request.Body.Any())
-            {
-                msg.Content = request.Body;
-            }
-
             return client.SendAsync(msg);
         }
     }

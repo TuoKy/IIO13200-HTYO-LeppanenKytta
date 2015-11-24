@@ -31,7 +31,7 @@ public class DataAccessLayer
     public void openConnection(List<Card> cards)
     {
         string sql;
-        sql = "INSERT INTO Card (CardName,Cardset,CardType,CardRarity,CardCost,CardAttack,CardHealth,CardText,CardPlayerClass,CardImg)" +
+        sql = "INSERT INTO Card (CardName,Cardset,CardType,CardRarity,CardCost,CardAttack,CardHealth,CardText,CardPlayerClass,CardImg)" +  
               "Values (@name, @set, @type, @rarity, @cost, @attack, @health, @text, @playerClass, @img);";
         using (MySqlConnection conn = new MySqlConnection(connStr))
         {

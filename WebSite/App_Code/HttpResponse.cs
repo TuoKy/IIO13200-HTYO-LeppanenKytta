@@ -42,11 +42,12 @@ namespace unirest_net.http
                     Body = JsonConvert.DeserializeObject<T>(stringTask.Result);
                 }
             }
-
+            
             foreach (var header in response.Headers)
             {
                 Headers.Add(header.Key, header.Value.First());
             }
+            
         }
     }
 }
