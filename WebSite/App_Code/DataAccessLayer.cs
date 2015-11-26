@@ -14,7 +14,6 @@ public class DataAccessLayer
 {
     private string connStr;
     private string sql;
-
     /*
         Tarvitaan pakat käyttäjältä
         Tarvitaan pakan luonti (insertoida kortteja deck_has_card)
@@ -36,6 +35,40 @@ public class DataAccessLayer
             cnn.Close();
         }
     }
+    
+    public List<Card> readCardsFromDB()
+    {
+        List<Card> cards = new List<Card>();
+
+        sql = " SELECT * FROM card";
+        MySqlConnection conn = new MySqlConnection(connStr);
+        MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+        conn.Open();
+
+        MySqlDataReader reader = cmd.ExecuteReader();
+
+        while (reader.Read())
+        {
+            cards.Add(new Card
+            {
+                cardId = int.Parse(reader["idCard"].ToString()),
+                name = reader["CardName"].ToString(),
+                cardSet = reader["CardSet"].ToString(),
+                type = reader["CardType"].ToString(),
+                rarity = reader["CardRarity"].ToString(),
+                cost = int.Parse(reader["CardCost"].ToString()),
+                attack = int.Parse(reader["CardAttack"].ToString()),
+                health = int.Parse(reader["CardHealth"].ToString()),
+                text = reader["CardText"].ToString(),
+                playerClass = reader["CardPlayerClass"].ToString(),
+                img = reader["CardImg"].ToString()
+            });
+        }
+        conn.Close();
+        return cards;
+    }
+
 
     public void InsertCardsToDb(List<Card> cards)
     {        

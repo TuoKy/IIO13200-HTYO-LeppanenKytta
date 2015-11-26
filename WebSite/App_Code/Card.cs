@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Card
 {
-    public string cardId { get; set; }
+    public int cardId { get; set; }
     public string name { get; set; }
     public string cardSet { get; set; }
     public string type { get; set; }
