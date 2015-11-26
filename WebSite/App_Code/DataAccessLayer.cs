@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -15,7 +16,8 @@ public class DataAccessLayer
 
     public DataAccessLayer()
     {
-        connStr = @"Data Source=db-H3408.vm; Database=mydb; User ID=DotnetHarkka; Password=dotnet";
+        connStr = ConfigurationManager.ConnectionStrings["connString"].ConnectionString;
+        //connStr = @"Data Source=db-H3408.vm; Database=mydb; User ID=DotnetHarkka; Password=dotnet";
     }
 
     public void testConnection()
@@ -42,7 +44,6 @@ public class DataAccessLayer
             }
             conn.Close();
         }
-
     }
 
     public void insertCard(string sql, MySqlConnection conn, Card x)
