@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4c350701705f45488f2145e6405fb2cc" Name="Diagram1">
-        <EntityTypeShape EntityType="mydbModel.card" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.card" Width="1.5" PointX="3.5" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="mydbModel.deck" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="mydbModel.deck_has_card" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="mydbModel.user" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />

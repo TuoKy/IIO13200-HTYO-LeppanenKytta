@@ -39,7 +39,6 @@ public partial class Test : System.Web.UI.Page
             System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AlertBox", "alert('Kortit jo kannassa');", true);
         }
         
-
         Grid.DataSource = cards as IEnumerable<Card>;
         Grid.DataBind();
     }
