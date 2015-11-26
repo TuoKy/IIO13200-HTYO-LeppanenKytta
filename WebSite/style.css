@@ -1,0 +1,15 @@
+﻿body {
+
+}
+#buttonsSide{
+    float:right;
+}
+#cards{
+    width:80%;
+    height:60%;
+}
+Image{
+    height:300px;
+    width:180px;
+}
+
