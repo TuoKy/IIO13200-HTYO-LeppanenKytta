@@ -13,6 +13,13 @@ using System.Web;
 public class DataAccessLayer
 {
     private string connStr;
+    private string sql;
+
+    /*
+        Tarvitaan pakat käyttäjältä
+        Tarvitaan pakan luonti (insertoida kortteja deck_has_card)
+        tarvitaan kortit näkyviin(millä logiikalla? eli kui monta ja millä haulla siis)
+    */
 
     public DataAccessLayer()
     {
@@ -30,9 +37,8 @@ public class DataAccessLayer
         }
     }
 
-    public void openConnection(List<Card> cards)
-    {
-        string sql;
+    public void InsertCardsToDb(List<Card> cards)
+    {        
         sql = "INSERT INTO Card (CardName,Cardset,CardType,CardRarity,CardCost,CardAttack,CardHealth,CardText,CardPlayerClass,CardImg)" +  
               "Values (@name, @set, @type, @rarity, @cost, @attack, @health, @text, @playerClass, @img);";
         using (MySqlConnection conn = new MySqlConnection(connStr))
@@ -40,13 +46,13 @@ public class DataAccessLayer
             conn.Open();
             foreach (var item in cards)
             {
-                insertCard(sql, conn, item);
+                insertCard(conn, item);
             }
             conn.Close();
         }
     }
 
-    public void insertCard(string sql, MySqlConnection conn, Card x)
+    public void insertCard(MySqlConnection conn, Card x)
     {
         if (x.type != "Hero")
         {

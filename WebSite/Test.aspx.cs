@@ -32,7 +32,7 @@ public partial class Test : System.Web.UI.Page
         DataAccessLayer layer1 = new DataAccessLayer();
         try
         {
-            layer1.openConnection(cards);
+            layer1.InsertCardsToDb(cards);
         }
         catch (Exception)
         {
