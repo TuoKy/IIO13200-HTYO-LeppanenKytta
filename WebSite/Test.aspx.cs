@@ -64,6 +64,8 @@ public partial class Test : System.Web.UI.Page
             testDeck.cards.Add(cardsInDeck);
         }
 
+        layer1.writeDeckToDB(testDeck);
+
 
         Grid.DataSource = cards as IEnumerable<Card>;
         Grid.DataBind();
