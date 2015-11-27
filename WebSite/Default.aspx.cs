@@ -8,16 +8,17 @@ using System.Web.UI.WebControls;
 public partial class _Default : System.Web.UI.Page
 {
     private DataAccessLayer layer = new DataAccessLayer();
+    private CardLogic logic = new CardLogic();
     List<Card> cards = new List<Card>();
-
+    private IComparer<Card> comparer;
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             getCards();
-
         }
+        setPictures();
     }
 
     private void getCards()
@@ -25,6 +26,7 @@ public partial class _Default : System.Web.UI.Page
         try
         {
             cards = layer.readCardsFromDB();
+            cards.Sort(new cardComparer());
         }
         catch (Exception)
         {
@@ -34,7 +36,9 @@ public partial class _Default : System.Web.UI.Page
 
     private void setPictures()
     {
-
+        Image1.ImageUrl = cards[0].img;
+        Image2.ImageUrl = cards[1].img;
+        Image3.ImageUrl = cards[2].img;
     }
 
 }
