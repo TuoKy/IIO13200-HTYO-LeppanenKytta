@@ -41,6 +41,7 @@ public partial class Test : System.Web.UI.Page
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AlertBox", "alert('Kortit jo kannassa');", true);
         }
         */
+        /*
         try
         {
             cards = layer1.readCardsFromDB();
@@ -49,8 +50,21 @@ public partial class Test : System.Web.UI.Page
         {
 
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AlertBox", "alert('Kantaan pääsee käsiksi vain labranetissä');", true);
+        }*/
+
+        //Testaa pakan luontia
+        Deck testDeck = new Deck();
+        testDeck.name = "Testi Pakka";
+        testDeck.userId = 1;
+        deckHasCard cardsInDeck = new deckHasCard();
+        for (int i = 0; i < 30; i++)
+        {
+            cardsInDeck.cardId = i;
+            cardsInDeck.count = 1;
+            testDeck.cards.Add(cardsInDeck);
         }
-        
+
+        layer1.writeDeckToDB(testDeck);
 
 
         Grid.DataSource = cards as IEnumerable<Card>;
