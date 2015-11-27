@@ -16,15 +16,20 @@
        <asp:Button ID="neutralCards" runat="server" Text="Button" />
     </div>
     <div id="cards">
-        <!--Jostain pitäisi repiä dataa tänne-->
-        <asp:Image ID="Image1" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/CS2_087.png" />
-        <asp:Image ID="Image2" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/DS1_233.png" />
-        <asp:Image ID="Image3" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_246.png" />
-        <asp:Image ID="Image4" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/CS2_150.png" />
-        <asp:Image ID="Image5" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/CS2_087.png" />
-        <asp:Image ID="Image6" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/DS1_233.png" />
-        <asp:Image ID="Image7" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_246.png" />
-        <asp:Image ID="Image8" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/CS2_150.png" />
+        <table>
+            <tr>
+                <td><asp:Image ID="Image1" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/CS2_087.png" CssClass="imageStyle"/></td>
+                <td><asp:Image ID="Image2" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/DS1_233.png" CssClass="imageStyle"/></td>
+                <td><asp:Image ID="Image3" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_246.png" CssClass="imageStyle"/></td>
+                <td><asp:Image ID="Image4" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/CS2_150.png" CssClass="imageStyle"/></td>
+            </tr>
+            <tr>
+                <td><asp:Image ID="Image5" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/CS2_087.png" CssClass="imageStyle"/></td>
+                <td><asp:Image ID="Image6" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/DS1_233.png" CssClass="imageStyle"/></td>
+                <td><asp:Image ID="Image7" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_246.png" CssClass="imageStyle"/></td>
+                <td><asp:Image ID="Image8" runat="server" ImageUrl="http://wow.zamimg.com/images/hearthstone/cards/enus/original/CS2_150.png" CssClass="imageStyle"/></td>
+            </tr>
+        </table>       
     </div>
 
     <div id="buttonsSide">

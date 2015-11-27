@@ -38,10 +38,19 @@ public partial class Test : System.Web.UI.Page
         }
         catch (Exception)
         {
-            System.Web.UI.ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AlertBox", "alert('Kortit jo kannassa');", true);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AlertBox", "alert('Kortit jo kannassa');", true);
         }
         */
-        cards = layer1.readCardsFromDB();
+        try
+        {
+            cards = layer1.readCardsFromDB();
+        }
+        catch (Exception)
+        {
+
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AlertBox", "alert('Kantaan pääsee käsiksi vain labranetissä');", true);
+        }
+        
 
 
         Grid.DataSource = cards as IEnumerable<Card>;

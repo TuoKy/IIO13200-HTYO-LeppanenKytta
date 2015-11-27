@@ -69,7 +69,6 @@ public class DataAccessLayer
         return cards;
     }
 
-
     public void InsertCardsToDb(List<Card> cards)
     {        
         sql = "INSERT INTO Card (CardName,Cardset,CardType,CardRarity,CardCost,CardAttack,CardHealth,CardText,CardPlayerClass,CardImg)" +  
@@ -105,4 +104,6 @@ public class DataAccessLayer
             }
         }
     }
+
+    public void 
 }
