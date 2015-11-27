@@ -70,6 +70,49 @@ public class DataAccessLayer
         conn.Close();
     }
 
+    /*
+        Funktio palauttaa halutun pakan
+    */
+    public Deck readDeckFromDB(int deckId)
+    {
+        Deck deck = new Deck();
+        deck.deckId = deckId;
+
+        sql = "SELECT * FROM deck WHERE idDeck=" + deckId.ToString();
+        MySqlConnection conn = new MySqlConnection(connStr);
+        MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+        conn.Open();
+
+        MySqlDataReader reader = cmd.ExecuteReader();
+        if (reader.HasRows)
+        {
+            reader.Read();
+            deck.name = reader["DeckName"].ToString();
+            deck.userId = int.Parse(reader["User_idUser"].ToString());
+        }
+        reader.Close();
+
+
+        List<deckHasCard> temp = new List<deckHasCard>();
+        cmd.CommandText = "SELECT * FROM deck_has_card WHERE Deck_idDeck=" + deckId.ToString();
+        reader = cmd.ExecuteReader();
+        if (reader.HasRows)
+        {
+            while (reader.Read())
+            {
+                temp.Add(new deckHasCard
+                {
+                    cardId = int.Parse(reader["Card_idCard"].ToString()),
+                    count = int.Parse(reader["CardCount"].ToString())
+                });
+            }
+        }
+        reader.Close();
+
+        conn.Close();
+        return deck;
+    }
 
     public List<Card> readCardsFromDB()
     {

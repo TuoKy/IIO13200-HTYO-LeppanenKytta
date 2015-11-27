@@ -54,23 +54,29 @@ public partial class Test : System.Web.UI.Page
 
         //Testaa pakan luontia
         Deck testDeck = new Deck();
+        /*
         testDeck.name = "Testi Pakka";
         testDeck.userId = 1;
         List<deckHasCard> temp = new List<deckHasCard>();
-        //deckHasCard cardsInDeck;
         for (int i = 1; i < 31; i++)
         {
-            // cardsInDeck = new deckHasCard();
-            // cardsInDeck.cardId = i;
-            // cardsInDeck.count = 1;
-            temp.Add(new deckHasCard(i, 1));            
+            temp.Add(new deckHasCard
+            {
+                cardId = i,
+                count = 1
+            });            
         }
         testDeck.cards = temp;
 
         layer1.writeDeckToDB(testDeck);
+        */
+
+        //Luetaan testipakka id=9 tällä hetkellä
+        testDeck = layer1.readDeckFromDB(9);
 
 
-        Grid.DataSource = cards as IEnumerable<Card>;
+        //Grid.DataSource = cards as IEnumerable<Card>;
+        Grid.DataSource = testDeck.cards as IEnumerable<deckHasCard>;
         Grid.DataBind();
     }
 }
