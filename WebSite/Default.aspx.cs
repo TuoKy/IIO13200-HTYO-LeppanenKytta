@@ -17,8 +17,9 @@ public partial class _Default : System.Web.UI.Page
         if (!IsPostBack)
         {
             getCards();
+            setPictures();
         }
-        setPictures();
+        
     }
 
     private void getCards()
@@ -39,6 +40,12 @@ public partial class _Default : System.Web.UI.Page
         Image1.ImageUrl = cards[0].img;
         Image2.ImageUrl = cards[1].img;
         Image3.ImageUrl = cards[2].img;
+        Image4.ImageUrl = cards[3].img;
+        Image5.ImageUrl = cards[4].img;
+        Image6.ImageUrl = cards[5].img;
+        Image7.ImageUrl = cards[6].img;
+        Image8.ImageUrl = cards[7].img;
+
     }
 
 }

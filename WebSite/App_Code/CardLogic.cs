@@ -12,9 +12,7 @@ public class CardLogic
 
     public CardLogic()
     {
-        //
-        // TODO: Add constructor logic here
-        //
+
     }
 
     

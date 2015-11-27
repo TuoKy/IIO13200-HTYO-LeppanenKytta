@@ -43,7 +43,7 @@ public class DataAccessLayer
         sql = " SELECT * FROM card";
         MySqlConnection conn = new MySqlConnection(connStr);
         MySqlCommand cmd = new MySqlCommand(sql, conn);
-
+        
         conn.Open();
 
         MySqlDataReader reader = cmd.ExecuteReader();
