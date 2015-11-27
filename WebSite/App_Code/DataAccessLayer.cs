@@ -35,7 +35,41 @@ public class DataAccessLayer
             cnn.Close();
         }
     }
-    
+    /*
+        Pakan luonti eli 1 Insert pakkaluokkaan ja korttien
+        lukumäärän verran Inserttejä deck_has_card luokkaan.
+    */
+    public void writeDeckToDB(Deck deck)
+    {
+        sql = "INSERT INTO Deck (DeckName,User_idUser)" +
+              "Values (@name, @userId);";
+        MySqlConnection conn = new MySqlConnection(connStr);
+        MySqlCommand cmd = new MySqlCommand(sql, conn);
+        conn.Open();
+
+        //Kirjoitetaan deck tauluun pakan nimi ja sen tekijä
+        cmd.Parameters.AddWithValue("@name", deck.name);
+        cmd.Parameters.AddWithValue("@userId", deck.userId);
+        cmd.ExecuteNonQuery();
+        //Haetaan juuri luodun pakan id
+        long deckId = cmd.LastInsertedId;
+
+        //Kirjoitetaan nyt jokainen pakkaan valittu kortti deck_has_card tauluun.
+        foreach (var item in deck.cards)
+        {
+            cmd.CommandText = "INSERT INTO deck_has_card (Deck_idDeck,Card_idCard,CardCount)" +
+                                "Values (@deckId, @cardId, @count);";
+            cmd.Parameters.AddWithValue("@deckId", deckId);
+            cmd.Parameters.AddWithValue("@cardId", item.cardId);
+            cmd.Parameters.AddWithValue("@count", item.count);
+            cmd.ExecuteNonQuery();
+        }
+
+        //Yhteys suljetaan
+        conn.Close();
+    }
+
+
     public List<Card> readCardsFromDB()
     {
         List<Card> cards = new List<Card>();
