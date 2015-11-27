@@ -56,13 +56,16 @@ public partial class Test : System.Web.UI.Page
         Deck testDeck = new Deck();
         testDeck.name = "Testi Pakka";
         testDeck.userId = 1;
-        deckHasCard cardsInDeck = new deckHasCard();
-        for (int i = 0; i < 30; i++)
+        List<deckHasCard> temp = new List<deckHasCard>();
+        //deckHasCard cardsInDeck;
+        for (int i = 1; i < 31; i++)
         {
-            cardsInDeck.cardId = i;
-            cardsInDeck.count = 1;
-            testDeck.cards.Add(cardsInDeck);
+            // cardsInDeck = new deckHasCard();
+            // cardsInDeck.cardId = i;
+            // cardsInDeck.count = 1;
+            temp.Add(new deckHasCard(i, 1));            
         }
+        testDeck.cards = temp;
 
         layer1.writeDeckToDB(testDeck);
 

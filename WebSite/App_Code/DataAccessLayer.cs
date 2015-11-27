@@ -57,6 +57,7 @@ public class DataAccessLayer
         //Kirjoitetaan nyt jokainen pakkaan valittu kortti deck_has_card tauluun.
         foreach (var item in deck.cards)
         {
+            cmd.Parameters.Clear();
             cmd.CommandText = "INSERT INTO deck_has_card (Deck_idDeck,Card_idCard,CardCount)" +
                                 "Values (@deckId, @cardId, @count);";
             cmd.Parameters.AddWithValue("@deckId", deckId);
