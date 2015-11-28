@@ -1,14 +1,12 @@
-﻿body {
-
-}
+﻿
 #buttonsSide{
     float:right;
 }
 #cards{
+    float: left;
     width:80%;
-    height:60%;
-}
-Image{
+    height:auto;
+    margin:0px;
 
 }
 .imageStyle
@@ -18,11 +16,23 @@ Image{
    margin: 0px;
    padding: 0px;
 }
-.arrowStyle
+.arrowStyleLeft
 {
+   float:left;
    height:auto;
    width:5%;
    margin: 0px;
+   padding: 0px;
+   margin-top:30%;
+   margin-left:4%; 
+}
+.arrowStyleRight
+{
+   float:right;
+   height:auto;
+   width:5%;
+   margin:0px;
+   margin-right:0%;
    padding: 0px;
 }
 

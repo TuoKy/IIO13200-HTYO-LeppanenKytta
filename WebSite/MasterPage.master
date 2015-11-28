@@ -7,11 +7,13 @@
     <title>Cheap deckbuilder</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder id="head" runat="server">
+        
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
+        <asp:Label runat="server" Text="Laita nav palkki tänne"></asp:Label>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
             
         </asp:ContentPlaceHolder>
