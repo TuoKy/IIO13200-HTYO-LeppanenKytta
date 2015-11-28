@@ -13,9 +13,15 @@ Image{
 }
 .imageStyle
 {
-   background-color: #525252;
    height:auto;
    width:20%;
+   margin: 0px;
+   padding: 0px;
+}
+.arrowStyle
+{
+   height:auto;
+   width:5%;
    margin: 0px;
    padding: 0px;
 }
