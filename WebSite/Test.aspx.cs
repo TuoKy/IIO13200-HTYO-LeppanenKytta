@@ -83,7 +83,10 @@ public partial class Test : System.Web.UI.Page
 
         foreach (var item in usersDecks[7].cards)
         {
-            newList.Add(logic.cards.Find(x => x.cardId == item.cardId));
+            for (int i = 0; i < item.count; i++)
+            {
+                newList.Add(logic.cards.Find(x => x.cardId == item.cardId));
+            }
         }
 
         //Grid.DataSource = cards as IEnumerable<Card>;
