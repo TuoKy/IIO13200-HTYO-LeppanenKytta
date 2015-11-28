@@ -72,11 +72,15 @@ public partial class Test : System.Web.UI.Page
         */
 
         //Luetaan testipakka id=9 tällä hetkellä
-        testDeck = layer1.readDeckFromDB(9);
+        //testDeck = layer1.readDeckFromDB(9);
+
+        //Luetaan yhden käyttäjän kaikki pakat
+        List<Deck> usersDecks = new List<Deck>();
+        usersDecks = layer1.readAllDecksByUser(1);
 
 
         //Grid.DataSource = cards as IEnumerable<Card>;
-        Grid.DataSource = testDeck.cards as IEnumerable<deckHasCard>;
+        Grid.DataSource = usersDecks[7].cards as IEnumerable<deckHasCard>;
         Grid.DataBind();
     }
 }

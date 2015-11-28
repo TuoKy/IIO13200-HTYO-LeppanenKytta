@@ -78,7 +78,7 @@ public class DataAccessLayer
         Deck deck = new Deck();
         deck.deckId = deckId;
 
-        sql = "SELECT * FROM deck WHERE idDeck=" + deckId.ToString();
+        sql = "SELECT * FROM deck WHERE idDeck=" + deckId.ToString() + ";";
         MySqlConnection conn = new MySqlConnection(connStr);
         MySqlCommand cmd = new MySqlCommand(sql, conn);
 
@@ -92,11 +92,57 @@ public class DataAccessLayer
             deck.userId = int.Parse(reader["User_idUser"].ToString());
         }
         reader.Close();
+        conn.Close();
 
+        deck.cards = this.cardsInThisDeck(deckId);
 
+        return deck;
+    }
+
+    /*
+        Lukee yhden käyttäjän kaikki pakat listaan ja palauttaa ne;
+    */
+    public List<Deck> readAllDecksByUser(int userId)
+    {
+        List<Deck> tempDecks = new List<Deck>();
+
+        sql = "SELECT * FROM deck WHERE User_idUser=" + userId.ToString() + ";";
+        MySqlConnection conn = new MySqlConnection(connStr);
+        MySqlCommand cmd = new MySqlCommand(sql, conn);
+        conn.Open();
+        MySqlDataReader reader = cmd.ExecuteReader();
+        if (reader.HasRows)
+        {
+            while (reader.Read())
+            {
+                tempDecks.Add(new Deck
+                {
+                    deckId = int.Parse(reader["idDeck"].ToString()),
+                    name = reader["DeckName"].ToString(),
+                    userId = int.Parse(reader["User_idUser"].ToString()),
+                    cards = this.cardsInThisDeck(int.Parse(reader["idDeck"].ToString()))
+                });
+            }
+        }
+        reader.Close();
+        conn.Close();
+
+        return tempDecks;
+    }
+
+    /*
+        Lukee yksittäisessä pakassa olevien korttien id:t ja lukumäärän
+        Apufunktio mitä aijemmat db:n lukufunktiot käyttävät
+    */
+    private List<deckHasCard> cardsInThisDeck(int deckId)
+    {
         List<deckHasCard> temp = new List<deckHasCard>();
-        cmd.CommandText = "SELECT * FROM deck_has_card WHERE Deck_idDeck=" + deckId.ToString();
-        reader = cmd.ExecuteReader();
+        sql = "SELECT * FROM deck_has_card WHERE Deck_idDeck=" + deckId.ToString() + ";";
+        MySqlConnection conn = new MySqlConnection(connStr);
+        MySqlCommand cmd = new MySqlCommand(sql, conn);
+        conn.Open();
+
+        MySqlDataReader reader = cmd.ExecuteReader();
         if (reader.HasRows)
         {
             while (reader.Read())
@@ -109,10 +155,11 @@ public class DataAccessLayer
             }
         }
         reader.Close();
-
         conn.Close();
-        return deck;
+
+        return temp;
     }
+
 
     public List<Card> readCardsFromDB()
     {
