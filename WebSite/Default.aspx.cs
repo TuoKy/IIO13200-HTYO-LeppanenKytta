@@ -7,15 +7,22 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
-    private CardLogic logic;   
+    private CardLogic logic;
     
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
-        {                        
+        {
             logic = new CardLogic();
             setPictures(logic.index);
-        }       
+            Session["logic"] = logic;
+        }
+        else
+        {
+            logic = (CardLogic)(Session["logic"]);
+        }
+                 
     }
     
     private void setPictures(int i)
@@ -50,13 +57,11 @@ public partial class _Default : System.Web.UI.Page
     {
         try
         {
-            setPictures(logic.index - 8);
+            setPictures(logic.index - 15);
         }
         catch (Exception)
         {
-
             throw;
         }
     }
-
 }

@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script>
+        function showCall() {
+            aler("plaa");
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
@@ -15,9 +20,7 @@
        <asp:Button ID="classCards7" runat="server" Text="Button" />
        <asp:Button ID="neutralCards" runat="server" Text="Button" />
     </div>
-    
-    
-    
+        
     <div id="cards"> 
          
         <asp:ImageButton ID="previous" runat="server" ImageUrl="Images/arrowBack.png" CssClass="arrowStyleLeft" OnClick="previous_Click" />
@@ -32,11 +35,9 @@
         <asp:Image ID="Image7" runat="server" CssClass="imageStyle"/>
         <asp:Image ID="Image8" runat="server" CssClass="imageStyle"/>     
         
-        <asp:ImageButton ID="next" runat="server" ImageUrl="Images/arrowNext.png" CssClass="arrowStyleRight" OnClick="next_Click" OnClientClick="" /> 
-            
+        <asp:ImageButton type="button" ID="next" runat="server" clientidmode="Static" ImageUrl="Images/arrowNext.png" CssClass="arrowStyleRight" onClick="next_Click" />    
+
     </div>
-    
-    
     
     <div id="buttonsSide">
         <asp:Button ID="Create" runat="server" Text="Create new deck" />
