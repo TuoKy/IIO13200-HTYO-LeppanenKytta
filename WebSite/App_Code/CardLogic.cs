@@ -8,14 +8,32 @@ using System.Web;
 /// </summary>
 public class CardLogic
 {
-    
+    public int index { get; set; }
+    public List<Card> cards { get; set; }
+
+    private DataAccessLayer layer = new DataAccessLayer();
 
     public CardLogic()
     {
-
+        index = 0;
+        cards = getCards();
     }
 
-    
+    private List<Card> getCards()
+    {
+        List<Card> temp = new List<Card>();
+
+        try
+        {
+            temp = layer.readCardsFromDB();
+            temp.Sort(new cardComparer());
+            return temp;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
 }
 
 public class cardComparer : IComparer<Card>

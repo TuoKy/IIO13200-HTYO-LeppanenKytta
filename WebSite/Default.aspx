@@ -15,10 +15,13 @@
        <asp:Button ID="classCards7" runat="server" Text="Button" />
        <asp:Button ID="neutralCards" runat="server" Text="Button" />
     </div>
-    <div id="cards">
-        
-        <asp:ImageButton ID="previous" runat="server" />
-  
+    
+    
+    
+    <div id="cards"> 
+         
+        <asp:ImageButton ID="previous" runat="server" ImageUrl="Images/arrowBack.png" CssClass="arrowStyleLeft" OnClick="previous_Click" />
+
         <asp:Image ID="Image1" runat="server" CssClass="imageStyle"/>
         <asp:Image ID="Image2" runat="server" CssClass="imageStyle"/>
         <asp:Image ID="Image3" runat="server" CssClass="imageStyle"/>
@@ -27,12 +30,14 @@
         <asp:Image ID="Image5" runat="server" CssClass="imageStyle"/>
         <asp:Image ID="Image6" runat="server" CssClass="imageStyle"/>
         <asp:Image ID="Image7" runat="server" CssClass="imageStyle"/>
-        <asp:Image ID="Image8" runat="server" CssClass="imageStyle"/>
- 
-        <asp:ImageButton ID="next" runat="server" /> 
-             
+        <asp:Image ID="Image8" runat="server" CssClass="imageStyle"/>     
+        
+        <asp:ImageButton ID="next" runat="server" ImageUrl="Images/arrowNext.png" CssClass="arrowStyleRight" OnClick="next_Click" OnClientClick="" /> 
+            
     </div>
-
+    
+    
+    
     <div id="buttonsSide">
         <asp:Button ID="Create" runat="server" Text="Create new deck" />
         <asp:Button ID="Button2" runat="server" Text="Button" />
