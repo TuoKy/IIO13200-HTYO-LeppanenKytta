@@ -20,8 +20,8 @@ public partial class Test : System.Web.UI.Page
 
         CardCollection collection = new CardCollection();
         collection = JsonConvert.DeserializeObject<CardCollection>(response.Body);
-        */
-        List<Card> cards = new List<Card>();/*
+        
+        List<Card> cards = new List<Card>();
         cards.AddRange(collection.basic);
         cards.AddRange(collection.classic);
         cards.AddRange(collection.naxxramas);
@@ -77,10 +77,17 @@ public partial class Test : System.Web.UI.Page
         //Luetaan yhden käyttäjän kaikki pakat
         List<Deck> usersDecks = new List<Deck>();
         usersDecks = layer1.readAllDecksByUser(1);
+        CardLogic logic = new CardLogic();
+        List<Card> cardsInDeck = new List<Card>();
+        List<Card> newList = new List<Card>();
 
+        foreach (var item in usersDecks[7].cards)
+        {
+            newList.Add(logic.cards.Find(x => x.cardId == item.cardId));
+        }
 
         //Grid.DataSource = cards as IEnumerable<Card>;
-        Grid.DataSource = usersDecks[7].cards as IEnumerable<deckHasCard>;
+        Grid.DataSource = newList as IEnumerable<Card>;
         Grid.DataBind();
     }
 }
