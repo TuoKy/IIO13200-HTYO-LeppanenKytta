@@ -75,15 +75,37 @@ public partial class Test : System.Web.UI.Page
         //testDeck = layer1.readDeckFromDB(9);
 
         //Luetaan yhden käyttäjän kaikki pakat
-        List<Deck> usersDecks = new List<Deck>();
-        usersDecks = layer1.readAllUserDecksFromDB(1);
-<<<<<<< HEAD
-=======
+        //List<Deck> usersDecks = new List<Deck>();
+        //usersDecks = layer1.readAllUserDecksFromDB(1);
 
->>>>>>> 9b4f43491a19df36e6e221fb29002924b86080dc
         CardLogic logic = new CardLogic();
         logic.setDecks(1);
-        logic.setCardsInActiveDeck(9);
+        logic.setCardsInActiveDeck(10);
+
+        /*
+        logic.startDeck("Druid", 1);
+        logic.addCard(1);
+        logic.addCard(1);
+        logic.addCard(1);
+
+        logic.addCard(2);
+        logic.addCard(2);
+
+        logic.addCard(3);
+
+        logic.deleteCard(1);
+        logic.deleteCard(2);
+        logic.deleteCard(3);
+        logic.deleteCard(5);
+
+        logic.addCard(2);
+        logic.addCard(5);
+        logic.addCard(6);
+        logic.addCard(7);
+        
+
+        logic.saveDeck("Paska Testi");
+        */
 
         /*List<Card> newList = new List<Card>();
 

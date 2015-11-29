@@ -26,6 +26,7 @@ public class CardLogic
         smallCardPool = new List<Card>();
         cardsInDeck = new List<Card>();
         newDeck = new Deck();
+        newDeck.cards = new List<deckHasCard>();
     }
 
     public void startDeck(string playerClass, int userId)
@@ -63,13 +64,16 @@ public class CardLogic
     public void deleteCard(int cardId)
     {
         int index = newDeck.cards.FindIndex(x => x.cardId == cardId);
-        if (newDeck.cards[index].count == 1)
+        if (index >= 0)
         {
-            newDeck.cards.RemoveAt(index);
-        }
-        else if (newDeck.cards[index].count == 2)
-        {
-            newDeck.cards[index].count = 1;
+            if (newDeck.cards[index].count == 1)
+            {
+                newDeck.cards.RemoveAt(index);
+            }
+            else if (newDeck.cards[index].count == 2)
+            {
+                newDeck.cards[index].count = 1;
+            }
         }
     }
 
