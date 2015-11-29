@@ -2,13 +2,22 @@
 #buttonsSide{
     float:right;
 }
+
+#container{
+    position:relative;
+    width:100%;
+}
+
 #cards{
-    float: left;
+    position:absolute;
+    left:10%;
     width:80%;
     height:auto;
     margin:0px;
 
 }
+
+
 
 .imageStyle
 {
@@ -19,21 +28,20 @@
 }
 .arrowStyleLeft
 {
-   float:left;
-   height:auto;
-   width:5%;
-   margin: 0px;
-   padding: 0px;
-   margin-top:30%;
-   margin-left:5%; 
+    position:absolute;
+    top:48%;
+    left:-6%;
+    height:auto;
+    width:5%;
 }
 .arrowStyleRight
-{
-   float:right;
-   height:auto;
-   width:5%;
-   margin:0px;
-   padding-bottom:70%;
+{    
+    position:absolute;
+    left:80%;
+    top:48%;
+    height:auto;
+    width:5%;
+
 }
 
 

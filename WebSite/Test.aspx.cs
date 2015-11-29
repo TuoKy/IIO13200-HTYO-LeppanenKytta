@@ -76,7 +76,7 @@ public partial class Test : System.Web.UI.Page
 
         //Luetaan yhden käyttäjän kaikki pakat
         List<Deck> usersDecks = new List<Deck>();
-        usersDecks = layer1.readAllDecksByUser(1);
+        usersDecks = layer1.readAllUserDecksFromDB(1);
         CardLogic logic = new CardLogic();
         List<Card> cardsInDeck = new List<Card>();
         List<Card> newList = new List<Card>();

@@ -28,6 +28,13 @@ public partial class _Default : System.Web.UI.Page
     
     private void setPictures(int i)
     {
+        /*
+        for (int j = 0; j < 8; j++)
+        {
+            setPicture
+        }
+         */
+                
         Image1.ImageUrl = logic.smallCardPool[i].img;
         Image2.ImageUrl = logic.smallCardPool[i + 1].img;
         Image3.ImageUrl = logic.smallCardPool[i + 2].img;
@@ -36,8 +43,13 @@ public partial class _Default : System.Web.UI.Page
         Image6.ImageUrl = logic.smallCardPool[i + 5].img;
         Image7.ImageUrl = logic.smallCardPool[i + 6].img;
         Image8.ImageUrl = logic.smallCardPool[i + 7].img;
-
+        
         logic.index = i + 7;
+    }
+
+    private void setPicture()
+    {
+
     }
 
     protected void next_Click(object sender, ImageClickEventArgs e)
