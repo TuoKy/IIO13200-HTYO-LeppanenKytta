@@ -8,7 +8,6 @@ using System.Web.UI.WebControls;
 public partial class _Default : System.Web.UI.Page
 {
     private CardLogic logic;
-    private List<Card> temp;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -17,7 +16,6 @@ public partial class _Default : System.Web.UI.Page
             logic = new CardLogic();
             Session["logic"] = logic;
             logic.divideAndConquer("Druid");
-            temp = logic.smallCardPool;
             setPictures(logic.index);
         }
         else
@@ -28,12 +26,6 @@ public partial class _Default : System.Web.UI.Page
     
     private void setPictures(int i)
     {
-        /*
-        for (int j = 0; j < 8; j++)
-        {
-            setPicture
-        }
-         */
                 
         Image1.ImageUrl = logic.smallCardPool[i].img;
         Image2.ImageUrl = logic.smallCardPool[i + 1].img;

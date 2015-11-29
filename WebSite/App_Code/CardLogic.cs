@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Summary description for CardLogic
+/// Kaikki bisneslogiikan kaltainen joka liittyy korttien käyttöön
 /// </summary>
 public class CardLogic
 {
@@ -97,8 +97,6 @@ public class CardLogic
         }
      }
 
-
-
     private List<Card> getCards()
     {
         List<Card> temp = new List<Card>();
@@ -114,14 +112,14 @@ public class CardLogic
             throw;
         }
     }
-
+    //Otetaan pieni osa korteista käsiteltäväksi
     public void divideAndConquer(string name)
     {
         smallCardPool = cards.FindAll(x => x.playerClass == name);
         index = 0;
     }
 }
-
+//Lajitellaan kortit luokan ja manacostin mukaan
 public class cardComparer : IComparer<Card>
 {
     public int Compare(Card x, Card y)

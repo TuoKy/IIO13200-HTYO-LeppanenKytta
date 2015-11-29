@@ -6,16 +6,16 @@
 
     <div = id="container">
     <div id="navigationTop">
-        <asp:Button ID="druidCards" runat="server" Text="Druid" OnClick="druidCards_Click" BackColor="#996633" ForeColor="Black" />
-        <asp:Button ID="hunterCards" runat="server" Text="Hunter" OnClick="hunterCards_Click" BackColor="#33CC33" />
-        <asp:Button ID="mageCards" runat="server" Text="Mage" OnClick="mageCards_Click" BackColor="#3399FF" />
-        <asp:Button ID="paladinCards" runat="server" Text="Paladin" OnClick="paladinCards_Click" BackColor="Yellow" />
-        <asp:Button ID="priestCards" runat="server" Text="Priest" OnClick="priestCards_Click" BackColor="White" />
-        <asp:Button ID="rogueCards" runat="server" Text="Rogue" OnClick="rogueCards_Click" BackColor="#666699" />
-        <asp:Button ID="shamanCards" runat="server" Text="Shaman" OnClick="shamanCards_Click" BackColor="Blue" />
-        <asp:Button ID="warlockCards" runat="server" Text="Warlock" OnClick="warlockCards_Click" BackColor="#660066" />
-        <asp:Button ID="warriorCards" runat="server" Text="Warrior" OnClick="warriorCards_Click" BackColor="Red" />
-        <asp:Button ID="neutrals" runat="server" Text="Neutrals" OnClick="neutrals_Click" BackColor="#CC9900" />
+        <asp:Button ID="druidCards" runat="server" Text="Druid" OnClick="druidCards_Click" class="btn btn-default" BackColor="#996633" ForeColor="White" />
+        <asp:Button ID="hunterCards" runat="server" Text="Hunter" OnClick="hunterCards_Click"  class="btn btn-default" BackColor="#009933" ForeColor="White" />
+        <asp:Button ID="mageCards" runat="server" Text="Mage" OnClick="mageCards_Click"  class="btn btn-default" BackColor="#33CCFF"/>
+        <asp:Button ID="paladinCards" runat="server" Text="Paladin" OnClick="paladinCards_Click"  class="btn btn-default" BackColor="Yellow"/>
+        <asp:Button ID="priestCards" runat="server" Text="Priest" OnClick="priestCards_Click"  class="btn btn-default"/>
+        <asp:Button ID="rogueCards" runat="server" Text="Rogue" OnClick="rogueCards_Click"  class="btn btn-default" BackColor="#666666" ForeColor="White"/>
+        <asp:Button ID="shamanCards" runat="server" Text="Shaman" OnClick="shamanCards_Click"  class="btn btn-default" BackColor="Blue" ForeColor="White"/>
+        <asp:Button ID="warlockCards" runat="server" Text="Warlock" OnClick="warlockCards_Click"  class="btn btn-default" BackColor="#660066" ForeColor="White"/>
+        <asp:Button ID="warriorCards" runat="server" Text="Warrior" OnClick="warriorCards_Click" class="btn btn-default" BackColor="Red" ForeColor="White"/>
+        <asp:Button ID="neutrals" runat="server" Text="Neutrals" OnClick="neutrals_Click"  class="btn btn-default" BackColor="#993300" ForeColor="White"/>
     </div>
 
     <div id="cards"> 

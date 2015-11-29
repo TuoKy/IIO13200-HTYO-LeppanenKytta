@@ -3,6 +3,52 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:imagebutton runat="server"></asp:imagebutton>
+        <div = id="container">
+    <div id="navigationTop">
+        <asp:Button ID="druidCards" runat="server" Text="Druid" OnClick="druidCards_Click" class="btn btn-default" BackColor="#996633" ForeColor="White" />
+        <asp:Button ID="hunterCards" runat="server" Text="Hunter" OnClick="hunterCards_Click"  class="btn btn-default" BackColor="#009933" ForeColor="White" />
+        <asp:Button ID="mageCards" runat="server" Text="Mage" OnClick="mageCards_Click"  class="btn btn-default" BackColor="#33CCFF"/>
+        <asp:Button ID="paladinCards" runat="server" Text="Paladin" OnClick="paladinCards_Click"  class="btn btn-default" BackColor="Yellow"/>
+        <asp:Button ID="priestCards" runat="server" Text="Priest" OnClick="priestCards_Click"  class="btn btn-default"/>
+        <asp:Button ID="rogueCards" runat="server" Text="Rogue" OnClick="rogueCards_Click"  class="btn btn-default" BackColor="#666666" ForeColor="White"/>
+        <asp:Button ID="shamanCards" runat="server" Text="Shaman" OnClick="shamanCards_Click"  class="btn btn-default" BackColor="Blue" ForeColor="White"/>
+        <asp:Button ID="warlockCards" runat="server" Text="Warlock" OnClick="warlockCards_Click"  class="btn btn-default" BackColor="#660066" ForeColor="White"/>
+        <asp:Button ID="warriorCards" runat="server" Text="Warrior" OnClick="warriorCards_Click" class="btn btn-default" BackColor="Red" ForeColor="White"/>
+        <asp:Button ID="neutrals" runat="server" Text="Neutrals" OnClick="neutrals_Click"  class="btn btn-default" BackColor="#993300" ForeColor="White"/>
+    </div>
+
+    <div id="cards"> 
+     <asp:ImageButton ID="previous" runat="server" ImageUrl="Images/arrowBack.png" CssClass="arrowStyleLeft" OnClick="previous_Click" />                                                        
+         <asp:updatepanel runat="server" id="panel">
+            <Triggers>              
+                <asp:AsyncPostBackTrigger ControlID="druidCards" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="hunterCards" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="mageCards" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="paladinCards" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="priestCards" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="rogueCards" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="shamanCards" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="warlockCards" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="warriorCards" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="neutrals" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="previous" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="next" EventName="Click" />                   
+            </Triggers>              
+            <ContentTemplate>                                            
+            <asp:ImageButton ID="Image1" runat="server" CssClass="imageStyle" />   
+            <asp:ImageButton ID="Image2" runat="server" CssClass="imageStyle" />   
+            <asp:ImageButton ID="Image3" runat="server" CssClass="imageStyle" />   
+            <asp:ImageButton ID="Image4" runat="server" CssClass="imageStyle" />   
+                
+            <asp:ImageButton ID="Image5" runat="server" CssClass="imageStyle" />   
+            <asp:ImageButton ID="Image6" runat="server" CssClass="imageStyle" />   
+            <asp:ImageButton ID="Image7" runat="server" CssClass="imageStyle" />   
+            <asp:ImageButton ID="Image8" runat="server" CssClass="imageStyle" />                                                                           
+            </ContentTemplate>
+        </asp:updatepanel>                                                 
+     <asp:ImageButton ID="next" runat="server" ImageUrl="Images/arrowNext.png" CssClass="arrowStyleRight" onClick="next_Click" /> 
+    </div> 
+   
+    </div> 
 </asp:Content>
 
