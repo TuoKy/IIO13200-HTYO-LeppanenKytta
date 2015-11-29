@@ -76,10 +76,13 @@ public partial class Test : System.Web.UI.Page
 
         //Luetaan yhden käyttäjän kaikki pakat
         List<Deck> usersDecks = new List<Deck>();
-        usersDecks = layer1.readAllDecksByUser(1);
+        usersDecks = layer1.readAllUserDecksFromDB(1);
+
         CardLogic logic = new CardLogic();
-        List<Card> cardsInDeck = new List<Card>();
-        List<Card> newList = new List<Card>();
+        logic.setDecks(1);
+        logic.setCardsInActiveDeck(9);
+
+        /*List<Card> newList = new List<Card>();
 
         foreach (var item in usersDecks[7].cards)
         {
@@ -87,10 +90,10 @@ public partial class Test : System.Web.UI.Page
             {
                 newList.Add(logic.cards.Find(x => x.cardId == item.cardId));
             }
-        }
+        }*/
 
         //Grid.DataSource = cards as IEnumerable<Card>;
-        Grid.DataSource = newList as IEnumerable<Card>;
+        Grid.DataSource = logic.cardsInDeck as IEnumerable<Card>;
         Grid.DataBind();
     }
 }

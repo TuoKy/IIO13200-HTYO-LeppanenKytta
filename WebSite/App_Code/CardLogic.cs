@@ -22,6 +22,7 @@ public class CardLogic
         index = 0;
         cards = getCards();
         smallCardPool = new List<Card>();
+        cardsInDeck = new List<Card>();
     }
 
     
