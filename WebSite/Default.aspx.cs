@@ -16,15 +16,13 @@ public partial class _Default : System.Web.UI.Page
         {
             logic = new CardLogic();
             Session["logic"] = logic;
-            logic.divideAndConquer("Warrior", 689);
-            //logic.divideAndConquer("Druid", 305);
+            logic.divideAndConquer("Druid", 305);
             temp = logic.smallCardPool;
             setPictures(logic.index);
         }
         else
         {
             logic = (CardLogic)(Session["logic"]);
-            //Session["preLoads"] = logic.preloadNextImages();
         }     
     }
     
