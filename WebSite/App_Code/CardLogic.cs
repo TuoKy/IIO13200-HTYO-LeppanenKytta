@@ -10,6 +10,8 @@ public class CardLogic
 {
     public int index { get; set; }
     public List<Card> cards { get; set; }
+    public List<Deck> decks { get; set; }
+    public List<Card> cardsInDeck { get; set; }
 
     private DataAccessLayer layer = new DataAccessLayer();
 
@@ -17,6 +19,25 @@ public class CardLogic
     {
         index = 0;
         cards = getCards();
+        cardsInDeck = new List<Card>();
+    }
+
+    public void setDecks(int userId)
+    {
+        decks = layer.readAllUserDecksFromDB(userId);
+    }
+
+    public void setCardsInActiveDeck(int deckId)
+    {
+        cardsInDeck.Clear();
+
+        foreach (var item in decks.Find(x => x.deckId == deckId).cards)
+        {
+            for (int i = 0; i < item.count; i++)
+            {
+                cardsInDeck.Add(cards.Find(x => x.cardId == item.cardId));
+            }
+        }
     }
 
     private List<Card> getCards()

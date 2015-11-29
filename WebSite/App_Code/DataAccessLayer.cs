@@ -102,7 +102,7 @@ public class DataAccessLayer
     /*
         Lukee yhden käyttäjän kaikki pakat listaan ja palauttaa ne;
     */
-    public List<Deck> readAllDecksByUser(int userId)
+    public List<Deck> readAllUserDecksFromDB(int userId)
     {
         List<Deck> tempDecks = new List<Deck>();
 
