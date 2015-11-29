@@ -63,7 +63,14 @@ public class CardLogic
     public void deleteCard(int cardId)
     {
         int index = newDeck.cards.FindIndex(x => x.cardId == cardId);
-        newDeck.cards.RemoveAt(index);
+        if (newDeck.cards[index].count == 1)
+        {
+            newDeck.cards.RemoveAt(index);
+        }
+        else if (newDeck.cards[index].count == 2)
+        {
+            newDeck.cards[index].count = 1;
+        }
     }
 
     public void saveDeck(string deckName)
