@@ -16,7 +16,7 @@ public partial class _Default : System.Web.UI.Page
         {
             logic = new CardLogic();
             Session["logic"] = logic;
-            logic.divideAndConquer("Druid", 305);
+            logic.divideAndConquer("Druid");
             temp = logic.smallCardPool;
             setPictures(logic.index);
         }
@@ -78,60 +78,60 @@ public partial class _Default : System.Web.UI.Page
 
     protected void druidCards_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("Druid", 305);
+        logic.divideAndConquer("Druid");
         setPictures(logic.index);
     }
 
     protected void hunterCards_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("Hunter", 354);
+        logic.divideAndConquer("Hunter");
         setPictures(logic.index);
     }
 
     protected void mageCards_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("Mage",  400);
+        logic.divideAndConquer("Mage");
         setPictures(logic.index);
     }
 
     protected void paladinCards_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("Paladin", 430);
+        logic.divideAndConquer("Paladin");
         setPictures(logic.index);
     }
 
     protected void priestCards_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("Priest", 460);
+        logic.divideAndConquer("Priest");
         setPictures(logic.index);
     }
 
     protected void rogueCards_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("Rogue", 490);
+        logic.divideAndConquer("Rogue");
         setPictures(logic.index);
     }
 
     protected void shamanCards_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("Shaman", 520);
+        logic.divideAndConquer("Shaman");
         setPictures(logic.index);
     }
     protected void warlockCards_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("Warlock", 550);
+        logic.divideAndConquer("Warlock");
         setPictures(logic.index);
     }
 
     protected void warriorCards_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("Warrior", 580);
+        logic.divideAndConquer("Warrior");
         setPictures(logic.index);
     }
 
     protected void neutrals_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("", 0);
+        logic.divideAndConquer("");
         setPictures(logic.index);
     }
 

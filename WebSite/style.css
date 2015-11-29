@@ -4,6 +4,7 @@
 }
 
 #container{
+    padding-top:60px;
     position:relative;
     width:100%;
 }
@@ -14,7 +15,6 @@
     width:80%;
     height:auto;
     margin:0px;
-
 }
 
 

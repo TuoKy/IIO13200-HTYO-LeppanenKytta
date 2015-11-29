@@ -108,31 +108,10 @@ public class CardLogic
         }
     }
 
-    public void divideAndConquer(string name, int shortCut)
+    public void divideAndConquer(string name)
     {
-        List<Card> temp = new List<Card>();
-        bool foundFirst = false;
+        smallCardPool = cards.FindAll(x => x.playerClass == name);
         index = 0;
-
-        for (int i = shortCut; i < cards.Count; i++)
-        {
-            if (i == cards.Count - 1)
-            {
-                smallCardPool = temp;
-                break;
-            }
-
-            if(cards[i].playerClass.Equals(name))
-            {
-                foundFirst = true;
-                temp.Add(cards[i]);
-            }
-            else if (foundFirst)
-            {              
-                smallCardPool = temp;
-                break;
-            }
-        }        
     }
 }
 
