@@ -15,6 +15,8 @@ public class CardLogic
      public List<Deck> decks { get; set; }
      public List<Card> cardsInDeck { get; set; }
 
+    public Deck newDeck { get; set; }
+
     private DataAccessLayer layer = new DataAccessLayer();
 
     public CardLogic()
@@ -22,9 +24,54 @@ public class CardLogic
         index = 0;
         cards = getCards();
         smallCardPool = new List<Card>();
+        cardsInDeck = new List<Card>();
+        newDeck = new Deck();
     }
 
-    
+    public void startDeck(string playerClass, int userId)
+    {
+        //Asetetaan käyttäjä ja korttien luokka
+        newDeck.userId = userId;
+        newDeck.playerClass = playerClass;
+        //Alustetaan tiedot joita ei vielä ole
+        newDeck.name = "";
+        newDeck.cards.Clear();
+    }
+
+    public bool addCard(int cardId)
+    {
+        int index = newDeck.cards.FindIndex(x => x.cardId == cardId);
+        if (index == -1)
+        {
+            newDeck.cards.Add(new deckHasCard
+            {
+                cardId = cardId,
+                count = 1
+            });
+        }
+        else if(newDeck.cards[index].count == 1)
+        {
+            newDeck.cards[index].count = 2;
+        }
+        else
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public void deleteCard(int cardId)
+    {
+        int index = newDeck.cards.FindIndex(x => x.cardId == cardId);
+        newDeck.cards.RemoveAt(index);
+    }
+
+    public void saveDeck(string deckName)
+    {
+        newDeck.name = deckName;
+        layer.writeDeckToDB(newDeck);
+    }
+
     public void setDecks(int userId)
     {
         decks = layer.readAllUserDecksFromDB(userId);
