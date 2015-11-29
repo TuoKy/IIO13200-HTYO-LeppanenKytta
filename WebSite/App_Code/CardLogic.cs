@@ -10,6 +10,7 @@ public class CardLogic
 {
     public int index { get; set; }
     public List<Card> cards { get; set; }
+    public List<Card> smallCardPool { get; set; }
 
     private DataAccessLayer layer = new DataAccessLayer();
 
@@ -17,6 +18,7 @@ public class CardLogic
     {
         index = 0;
         cards = getCards();
+        smallCardPool = new List<Card>();
     }
 
     private List<Card> getCards()
@@ -33,6 +35,33 @@ public class CardLogic
         {
             throw;
         }
+    }
+
+    public void divideAndConquer(string name, int shortCut)
+    {
+        List<Card> temp = new List<Card>();
+        bool foundFirst = false;
+        index = 0;
+
+        for (int i = shortCut; i < cards.Count; i++)
+        {
+            if (i == cards.Count - 1)
+            {
+                smallCardPool = temp;
+                break;
+            }
+
+            if(cards[i].playerClass.Equals(name))
+            {
+                foundFirst = true;
+                temp.Add(cards[i]);
+            }
+            else if (foundFirst)
+            {              
+                smallCardPool = temp;
+                break;
+            }
+        }        
     }
 }
 
