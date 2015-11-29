@@ -22,7 +22,7 @@ public partial class _Default : System.Web.UI.Page
         {
             logic = (CardLogic)(Session["logic"]);
         }
-                 
+     
     }
     
     private void setPictures(int i)
@@ -47,10 +47,8 @@ public partial class _Default : System.Web.UI.Page
         }
         catch (Exception)
         {
-
             throw;
-        }
-        
+        }       
     }
 
     protected void previous_Click(object sender, ImageClickEventArgs e)

@@ -24,7 +24,7 @@
    margin: 0px;
    padding: 0px;
    margin-top:30%;
-   margin-left:4%; 
+   margin-left:5%; 
 }
 .arrowStyleRight
 {
@@ -32,7 +32,6 @@
    height:auto;
    width:5%;
    margin:0px;
-   margin-right:0%;
-   padding: 0px;
+   padding-bottom:70%;
 }
 
