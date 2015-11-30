@@ -80,7 +80,7 @@ public partial class Test : System.Web.UI.Page
 
         CardLogic logic = new CardLogic();
         logic.setDecks(1);
-        logic.setCardsInActiveDeck(10);
+        logic.setCardsInActiveDeck(15);
 
         /*
         logic.startDeck("Druid", 1);

@@ -69,7 +69,7 @@ public class CardLogic
         int index = newDeck.cards.FindIndex(x => x.cardId == cardId);
         if (index >= 0)
         {
-            cardsInDeck.RemoveAt(cards.FindIndex(x => x.cardId == cardId));
+            cardsInDeck.RemoveAt(cardsInDeck.FindIndex(x => x.cardId == cardId));
             if (newDeck.cards[index].count == 1)
             {
                 newDeck.cards.RemoveAt(index);

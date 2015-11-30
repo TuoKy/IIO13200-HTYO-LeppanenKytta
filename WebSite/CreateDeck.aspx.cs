@@ -57,15 +57,18 @@ public partial class CreateDeck : System.Web.UI.Page
         
     }
 
-    protected void GridButtons_Command(object sender, GridViewCommandEventArgs e)
+    protected void GridViewDeck_RowCommand(Object sender, GridViewCommandEventArgs e)
     {
-        int index = Convert.ToInt32(e.CommandArgument);
-        GridViewRow row = GridViewDeck.Rows[index];
-        int temp = logic.cardsInDeck.FindIndex(x=>x.name==row.Cells[1].Text);
-
-        logic.deleteCard(temp);
+        if (e.CommandName == "DELETE")
+        {
+            LinkButton lnkDelete = (LinkButton)e.CommandSource;
+            //int index = Convert.ToInt32(lnkDelete.CommandArgument);
+            int temp = logic.cardsInDeck.FindIndex(x => x.name == lnkDelete.CommandArgument);
+            int temp2 = logic.cardsInDeck[temp].cardId;
+            logic.deleteCard(temp2);
+            GridViewDeck.DataBind();
+        }
     }
-
 
     protected void druidCards_Click(object sender, EventArgs e)
     {
