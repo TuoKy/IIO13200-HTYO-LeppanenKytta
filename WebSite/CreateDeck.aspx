@@ -47,8 +47,13 @@
             </ContentTemplate>
         </asp:updatepanel>                                                 
      <asp:ImageButton ID="next" runat="server" ImageUrl="Images/arrowNext.png" CssClass="arrowStyleRight" onClick="next_Click" /> 
+    </div>
+    <div id="deckDetails">
+        <asp:textbox runat="server" id="deckName"></asp:textbox>
+        <asp:button runat="server" text="Save Deck" OnClick="SaveButtonClick" />
     </div> 
    
-    </div> 
+    </div>
+    
 </asp:Content>
 

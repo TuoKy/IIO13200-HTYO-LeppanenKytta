@@ -17,6 +17,11 @@
     margin:0px;
 }
 
+#deckDetails{
+    clear:both;
+    margin-bottom:5%;
+}
+
 .Hidden{
     display:none;
 }

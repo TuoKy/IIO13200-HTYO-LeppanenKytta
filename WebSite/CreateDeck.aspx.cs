@@ -145,6 +145,17 @@ public partial class CreateDeck : System.Web.UI.Page
 
     protected void ImageButtonClick(object sender, ImageClickEventArgs e)
     {
+        ImageButton tempButton = (ImageButton)sender;
+        //Tähän voi asettaa jotain tarkistuksia alternateText kentälle
+        logic.addCard(int.Parse(tempButton.AlternateText));
+    }
 
+    protected void SaveButtonClick(object sender, EventArgs e)
+    {
+        if(deckName.Text != "")
+        {
+            logic.saveDeck(deckName.Text);
+            Response.Redirect("Default.aspx");
+        }
     }
 }
