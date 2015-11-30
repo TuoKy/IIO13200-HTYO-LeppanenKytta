@@ -37,6 +37,8 @@ public class CardLogic
         //Alustetaan tiedot joita ei vielä ole
         newDeck.name = "";
         newDeck.cards.Clear();
+        //Näytöllä näytettävät valittujen korttien tiedot tähän listaan
+        cardsInDeck.Clear();
     }
 
     public bool addCard(int cardId)
@@ -58,6 +60,7 @@ public class CardLogic
         {
             return false;
         }
+        cardsInDeck.Add(cards.Find(x => x.cardId == cardId));
         return true;
     }
 
@@ -66,6 +69,7 @@ public class CardLogic
         int index = newDeck.cards.FindIndex(x => x.cardId == cardId);
         if (index >= 0)
         {
+            cardsInDeck.RemoveAt(cards.FindIndex(x => x.cardId == cardId));
             if (newDeck.cards[index].count == 1)
             {
                 newDeck.cards.RemoveAt(index);
