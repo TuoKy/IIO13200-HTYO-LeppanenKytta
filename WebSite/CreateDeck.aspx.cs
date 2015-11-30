@@ -19,10 +19,14 @@ public partial class CreateDeck : System.Web.UI.Page
             logic.startDeck((string)(Session["Class"]),1);
             logic.divideAndConquer((string)(Session["Class"]));
             setPictures(logic.index);
+            GridViewDeck.DataSource = logic.cardsInDeck as IEnumerable<Card>;
+            GridViewDeck.DataBind();
         }
         else
         {
             logic = (CardLogic)(Session["logic"]);
+            GridViewDeck.DataSource = logic.cardsInDeck as IEnumerable<Card>;
+            GridViewDeck.DataBind();
         }
     }
 
@@ -53,11 +57,15 @@ public partial class CreateDeck : System.Web.UI.Page
         
     }
 
-    //Asettaa toiminnallisuuden Ladatuille pictureButtoneille
-    private void initButtons()
+    protected void GridButtons_Command(object sender, GridViewCommandEventArgs e)
     {
-        
+        int index = Convert.ToInt32(e.CommandArgument);
+        GridViewRow row = GridViewDeck.Rows[index];
+        int temp = logic.cardsInDeck.FindIndex(x=>x.name==row.Cells[1].Text);
+
+        logic.deleteCard(temp);
     }
+
 
     protected void druidCards_Click(object sender, EventArgs e)
     {
@@ -148,6 +156,7 @@ public partial class CreateDeck : System.Web.UI.Page
         ImageButton tempButton = (ImageButton)sender;
         //Tähän voi asettaa jotain tarkistuksia alternateText kentälle
         logic.addCard(int.Parse(tempButton.AlternateText));
+        GridViewDeck.DataBind();
     }
 
     protected void SaveButtonClick(object sender, EventArgs e)

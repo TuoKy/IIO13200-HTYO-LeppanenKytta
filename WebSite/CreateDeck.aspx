@@ -48,11 +48,15 @@
             </asp:updatepanel>                                                 
          <asp:ImageButton ID="next" runat="server" ImageUrl="Images/arrowNext.png" CssClass="arrowStyleRight" onClick="next_Click" /> 
         </div>
+    
+    </div> 
+    <div id="anotherContainer">
         <div id="deckDetails">
             <asp:textbox runat="server" id="deckName"></asp:textbox>
             <asp:button runat="server" text="Save Deck" OnClick="SaveButtonClick" />
-        </div>
-        <div id="CurrentDeck">
+        </div>   
+
+    <div id="CurrentDeck">
             <asp:UpdatePanel runat="server" ID="Updatepanel2">
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="Image1" EventName="Click" />
@@ -65,10 +69,24 @@
                     <asp:AsyncPostBackTrigger ControlID="Image8" EventName="Click" />
                 </Triggers>
                 <ContentTemplate>
-                    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                    <asp:GridView ID="GridViewDeck" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-condensed" OnCommand="GridButtons_Command">
+                        <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:Button ID="removeButton" runat="server"
+                                        CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                        Text="Remove" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="name" HeaderText="name" ReadOnly="True" />
+                            <asp:BoundField DataField="cost" HeaderText="cost" />
+                            <asp:BoundField DataField="attack" HeaderText="attack" />
+                            <asp:BoundField DataField="health" HeaderText="health" />
+                        </Columns>
+                    </asp:GridView>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-    </div>    
+    </div>              
 </asp:Content>
 
