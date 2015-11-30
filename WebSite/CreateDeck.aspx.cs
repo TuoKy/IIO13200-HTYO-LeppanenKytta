@@ -31,19 +31,19 @@ public partial class CreateDeck : System.Web.UI.Page
         Image1.ImageUrl = logic.smallCardPool[i].img;
         Image1.AlternateText = logic.smallCardPool[i].cardId.ToString();
         Image2.ImageUrl = logic.smallCardPool[i + 1].img;
-        Image1.AlternateText = logic.smallCardPool[i + 1].cardId.ToString();
+        Image2.AlternateText = logic.smallCardPool[i + 1].cardId.ToString();
         Image3.ImageUrl = logic.smallCardPool[i + 2].img;
-        Image1.AlternateText = logic.smallCardPool[i + 2].cardId.ToString();
+        Image3.AlternateText = logic.smallCardPool[i + 2].cardId.ToString();
         Image4.ImageUrl = logic.smallCardPool[i + 3].img;
-        Image1.AlternateText = logic.smallCardPool[i + 3].cardId.ToString();
+        Image4.AlternateText = logic.smallCardPool[i + 3].cardId.ToString();
         Image5.ImageUrl = logic.smallCardPool[i + 4].img;
-        Image1.AlternateText = logic.smallCardPool[i + 4].cardId.ToString();
+        Image5.AlternateText = logic.smallCardPool[i + 4].cardId.ToString();
         Image6.ImageUrl = logic.smallCardPool[i + 5].img;
-        Image1.AlternateText = logic.smallCardPool[i + 5].cardId.ToString();
+        Image6.AlternateText = logic.smallCardPool[i + 5].cardId.ToString();
         Image7.ImageUrl = logic.smallCardPool[i + 6].img;
-        Image1.AlternateText = logic.smallCardPool[i + 6].cardId.ToString();
+        Image7.AlternateText = logic.smallCardPool[i + 6].cardId.ToString();
         Image8.ImageUrl = logic.smallCardPool[i + 7].img;
-        Image1.AlternateText = logic.smallCardPool[i + 7].cardId.ToString();
+        Image8.AlternateText = logic.smallCardPool[i + 7].cardId.ToString();
 
         logic.index = i + 7;
     }

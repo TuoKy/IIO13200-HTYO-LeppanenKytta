@@ -11,6 +11,7 @@
 
 #cards{
     position:absolute;
+    top:70%;
     left:10%;
     width:80%;
     height:auto;
@@ -19,7 +20,11 @@
 
 #deckDetails{
     clear:both;
-    margin-bottom:5%;
+    padding-bottom:5%;
+}
+
+#currentDeck{
+    float: right;
 }
 
 .Hidden{
