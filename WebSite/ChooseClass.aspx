@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div = id="container">
-        <asp:Button ID="druidCards" runat="server" Text="Druid" class="btn btn-default" BackColor="#996633" ForeColor="White" OnClick="druidCards_Click" />
+        <asp:Button ID="druidCards"  runat="server" Text="Druid" class="btn btn-default" BackColor="#996633" ForeColor="White" OnClick="druidCards_Click" />
         <asp:Button ID="hunterCards" runat="server" Text="Hunter"   class="btn btn-default" BackColor="#009933" ForeColor="White" />
         <asp:Button ID="mageCards" runat="server" Text="Mage"   class="btn btn-default" BackColor="#33CCFF"/>
         <asp:Button ID="paladinCards" runat="server" Text="Paladin"   class="btn btn-default" BackColor="Yellow"/>
