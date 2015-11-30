@@ -35,15 +35,15 @@
                 <asp:AsyncPostBackTrigger ControlID="next" EventName="Click" />                   
             </Triggers>              
             <ContentTemplate>                                            
-            <asp:ImageButton ID="Image1" runat="server" CssClass="imageStyle" />   
-            <asp:ImageButton ID="Image2" runat="server" CssClass="imageStyle" />   
-            <asp:ImageButton ID="Image3" runat="server" CssClass="imageStyle" />   
-            <asp:ImageButton ID="Image4" runat="server" CssClass="imageStyle" />   
+            <asp:ImageButton ID="Image1" runat="server" CssClass="imageStyle" OnClick="ImageButtonClick" />   
+            <asp:ImageButton ID="Image2" runat="server" CssClass="imageStyle" OnClick="ImageButtonClick" />   
+            <asp:ImageButton ID="Image3" runat="server" CssClass="imageStyle" OnClick="ImageButtonClick"/>   
+            <asp:ImageButton ID="Image4" runat="server" CssClass="imageStyle" OnClick="ImageButtonClick"/>   
                 
-            <asp:ImageButton ID="Image5" runat="server" CssClass="imageStyle" />   
-            <asp:ImageButton ID="Image6" runat="server" CssClass="imageStyle" />   
-            <asp:ImageButton ID="Image7" runat="server" CssClass="imageStyle" />   
-            <asp:ImageButton ID="Image8" runat="server" CssClass="imageStyle" />                                                                           
+            <asp:ImageButton ID="Image5" runat="server" CssClass="imageStyle" OnClick="ImageButtonClick"/>   
+            <asp:ImageButton ID="Image6" runat="server" CssClass="imageStyle" OnClick="ImageButtonClick"/>   
+            <asp:ImageButton ID="Image7" runat="server" CssClass="imageStyle" OnClick="ImageButtonClick"/>   
+            <asp:ImageButton ID="Image8" runat="server" CssClass="imageStyle" OnClick="ImageButtonClick"/>                                                                           
             </ContentTemplate>
         </asp:updatepanel>                                                 
      <asp:ImageButton ID="next" runat="server" ImageUrl="Images/arrowNext.png" CssClass="arrowStyleRight" onClick="next_Click" /> 

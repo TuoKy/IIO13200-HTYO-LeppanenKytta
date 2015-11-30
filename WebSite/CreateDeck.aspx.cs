@@ -15,7 +15,9 @@ public partial class CreateDeck : System.Web.UI.Page
         {
             logic = new CardLogic();
             Session["logic"] = logic;
-            logic.divideAndConquer("Druid");
+            //User id pitää vaihtaa kun saa loginin tehtyä
+            logic.startDeck((string)(Session["Class"]),1);
+            logic.divideAndConquer((string)(Session["Class"]));
             setPictures(logic.index);
         }
         else
@@ -27,15 +29,34 @@ public partial class CreateDeck : System.Web.UI.Page
     private void setPictures(int i)
     {
         Image1.ImageUrl = logic.smallCardPool[i].img;
+        Image1.AlternateText = logic.smallCardPool[i].cardId.ToString();
         Image2.ImageUrl = logic.smallCardPool[i + 1].img;
+        Image1.AlternateText = logic.smallCardPool[i + 1].cardId.ToString();
         Image3.ImageUrl = logic.smallCardPool[i + 2].img;
+        Image1.AlternateText = logic.smallCardPool[i + 2].cardId.ToString();
         Image4.ImageUrl = logic.smallCardPool[i + 3].img;
+        Image1.AlternateText = logic.smallCardPool[i + 3].cardId.ToString();
         Image5.ImageUrl = logic.smallCardPool[i + 4].img;
+        Image1.AlternateText = logic.smallCardPool[i + 4].cardId.ToString();
         Image6.ImageUrl = logic.smallCardPool[i + 5].img;
+        Image1.AlternateText = logic.smallCardPool[i + 5].cardId.ToString();
         Image7.ImageUrl = logic.smallCardPool[i + 6].img;
+        Image1.AlternateText = logic.smallCardPool[i + 6].cardId.ToString();
         Image8.ImageUrl = logic.smallCardPool[i + 7].img;
+        Image1.AlternateText = logic.smallCardPool[i + 7].cardId.ToString();
 
         logic.index = i + 7;
+    }
+
+    private void hideButtons()
+    {
+        
+    }
+
+    //Asettaa toiminnallisuuden Ladatuille pictureButtoneille
+    private void initButtons()
+    {
+        
     }
 
     protected void druidCards_Click(object sender, EventArgs e)
@@ -119,5 +140,11 @@ public partial class CreateDeck : System.Web.UI.Page
         {
             
         }
+    }
+
+
+    protected void ImageButtonClick(object sender, ImageClickEventArgs e)
+    {
+
     }
 }

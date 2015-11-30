@@ -17,7 +17,9 @@
     margin:0px;
 }
 
-
+.Hidden{
+    display:none;
+}
 
 .imageStyle
 {
