@@ -11,7 +11,7 @@
             <br />
         </div>
 
-        <div id="CurrentDeck">
+        <div>
 
             <asp:GridView ID="GridViewDeck" runat="server"
                 AutoGenerateColumns="False"
