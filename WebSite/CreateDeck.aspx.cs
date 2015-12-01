@@ -15,7 +15,6 @@ public partial class CreateDeck : System.Web.UI.Page
         {
             logic = new CardLogic();
             Session["logic"] = logic;
-            hideOtherClasses();
             //User id pitää vaihtaa kun saa loginin tehtyä
             logic.startDeck((string)(Session["Class"]),1);
             logic.divideAndConquer((string)(Session["Class"]));
@@ -28,25 +27,6 @@ public partial class CreateDeck : System.Web.UI.Page
             logic = (CardLogic)(Session["logic"]);
             GridViewDeck.DataSource = logic.cardsInDeck as IEnumerable<Card>;
             GridViewDeck.DataBind();
-        }
-    }
-
-    private void hideOtherClasses()
-    {
-        try
-        {
-            foreach (Button c in Parent.Controls)
-            {
-                if(c.ID != (string)Session["class"])
-                {
-                    c.Enabled = false;
-                }
-            }
-        }
-        catch (Exception)
-        {
-
-            throw;
         }
     }
 

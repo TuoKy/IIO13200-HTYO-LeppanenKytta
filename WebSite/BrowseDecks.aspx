@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="container">
 
-    <div id="CurrentDeck">
+    <div id="allDecks">
             <asp:UpdatePanel runat="server" ID="Updatepanel2">
                 <ContentTemplate>
                     <asp:GridView ID="GridViewDeck" runat="server"
