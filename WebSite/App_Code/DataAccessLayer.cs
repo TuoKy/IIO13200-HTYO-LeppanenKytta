@@ -42,8 +42,8 @@ public class DataAccessLayer
     */
     public void writeDeckToDB(Deck deck)
     {
-        sql = "INSERT INTO Deck (DeckName,User_idUser)" +
-              "Values (@name, @userId);";
+        sql = "INSERT INTO Deck (DeckName,User_idUser,DeckClass)" +
+              "Values (@name, @userId, @deckClass);";
         MySqlConnection conn = new MySqlConnection(connStr);
         MySqlCommand cmd = new MySqlCommand(sql, conn);
         conn.Open();
@@ -51,6 +51,7 @@ public class DataAccessLayer
         //Kirjoitetaan deck tauluun pakan nimi ja sen tekijä
         cmd.Parameters.AddWithValue("@name", deck.name);
         cmd.Parameters.AddWithValue("@userId", deck.userId);
+        cmd.Parameters.AddWithValue("@deckClass", deck.playerClass);
         cmd.ExecuteNonQuery();
         //Haetaan juuri luodun pakan id
         long deckId = cmd.LastInsertedId;
