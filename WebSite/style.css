@@ -25,7 +25,7 @@
 
 #CurrentDeck{
     position:absolute;
-    left:77%;
+    right:0%;
     max-width:25%;
     max-height:75%;
     overflow-y:scroll;

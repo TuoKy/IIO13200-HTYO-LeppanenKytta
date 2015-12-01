@@ -83,62 +83,17 @@ public partial class CreateDeck : System.Web.UI.Page
         }
     }
 
-    protected void druidCards_Click(object sender, EventArgs e)
+    protected void classButton_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("Druid");
-        setPictures(logic.index);
-    }
+        Button button = (Button)sender;
+        string buttonId = button.Text;
 
-    protected void hunterCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Hunter");
-        setPictures(logic.index);
-    }
+        if(buttonId == "Neutrals")
+        {
+            buttonId = "";
+        }
 
-    protected void mageCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Mage");
-        setPictures(logic.index);
-    }
-
-    protected void paladinCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Paladin");
-        setPictures(logic.index);
-    }
-
-    protected void priestCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Priest");
-        setPictures(logic.index);
-    }
-
-    protected void rogueCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Rogue");
-        setPictures(logic.index);
-    }
-
-    protected void shamanCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Shaman");
-        setPictures(logic.index);
-    }
-    protected void warlockCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Warlock");
-        setPictures(logic.index);
-    }
-
-    protected void warriorCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Warrior");
-        setPictures(logic.index);
-    }
-
-    protected void neutrals_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("");
+        logic.divideAndConquer(buttonId);
         setPictures(logic.index);
     }
 
@@ -171,16 +126,25 @@ public partial class CreateDeck : System.Web.UI.Page
     {
         ImageButton tempButton = (ImageButton)sender;
         //Tähän voi asettaa jotain tarkistuksia alternateText kentälle
-        logic.addCard(int.Parse(tempButton.AlternateText));
+        if(!logic.addCard(int.Parse(tempButton.AlternateText)))
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AlertBox", "alert('Kortin lisäys epäonnistui!');", true);
+        }
         GridViewDeck.DataBind();
     }
 
     protected void SaveButtonClick(object sender, EventArgs e)
     {
-        if(deckName.Text != "")
+        string tempName = deckName.Text;
+
+        if(tempName != "")
         {
-            logic.saveDeck(deckName.Text);
+            logic.saveDeck(tempName);
             Response.Redirect("Default.aspx");
+        }
+        else
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AlertBox", "alert('Pakan nimi puuttuu.');", true);
         }
     }
 

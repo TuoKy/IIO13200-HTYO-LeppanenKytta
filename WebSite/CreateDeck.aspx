@@ -1,20 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CreateDeck.aspx.cs" Inherits="CreateDeck" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CreateDeck.aspx.cs" Inherits="CreateDeck" ValidateRequest="false"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="container">
         <div id="navigationTop">
-            <asp:Button ID="druidCards" runat="server" Text="Druid" OnClick="druidCards_Click" class="btn btn-default classButton" BackColor="#996633" ForeColor="White" />
-            <asp:Button ID="hunterCards" runat="server" Text="Hunter" OnClick="hunterCards_Click"  class="btn btn-default classButton" BackColor="#009933" ForeColor="White" />
-            <asp:Button ID="mageCards" runat="server" Text="Mage" OnClick="mageCards_Click"  class="btn btn-default classButton" BackColor="#33CCFF"/>
-            <asp:Button ID="paladinCards" runat="server" Text="Paladin" OnClick="paladinCards_Click"  class="btn btn-default classButton" BackColor="Yellow"/>
-            <asp:Button ID="priestCards" runat="server" Text="Priest" OnClick="priestCards_Click"  class="btn btn-default classButton"/>
-            <asp:Button ID="rogueCards" runat="server" Text="Rogue" OnClick="rogueCards_Click"  class="btn btn-default classButton" BackColor="#666666" ForeColor="White"/>
-            <asp:Button ID="shamanCards" runat="server" Text="Shaman" OnClick="shamanCards_Click"  class="btn btn-default classButton" BackColor="Blue" ForeColor="White"/>
-            <asp:Button ID="warlockCards" runat="server" Text="Warlock" OnClick="warlockCards_Click"  class="btn btn-default classButton" BackColor="#660066" ForeColor="White"/>
-            <asp:Button ID="warriorCards" runat="server" Text="Warrior" OnClick="warriorCards_Click" class="btn btn-default classButton" BackColor="Red" ForeColor="White"/>
-            <asp:Button ID="neutrals" runat="server" Text="Neutrals" OnClick="neutrals_Click"  class="btn btn-default classButton" BackColor="#993300" ForeColor="White"/>
+            <asp:Button ID="druidCards" runat="server" Text="Druid" OnClick="classButton_Click" class="btn btn-default classButton" BackColor="#996633" ForeColor="White" />
+            <asp:Button ID="hunterCards" runat="server" Text="Hunter" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="#009933" ForeColor="White" />
+            <asp:Button ID="mageCards" runat="server" Text="Mage" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="#33CCFF"/>
+            <asp:Button ID="paladinCards" runat="server" Text="Paladin" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="Yellow"/>
+            <asp:Button ID="priestCards" runat="server" Text="Priest" OnClick="classButton_Click"  class="btn btn-default classButton"/>
+            <asp:Button ID="rogueCards" runat="server" Text="Rogue" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="#666666" ForeColor="White"/>
+            <asp:Button ID="shamanCards" runat="server" Text="Shaman" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="Blue" ForeColor="White"/>
+            <asp:Button ID="warlockCards" runat="server" Text="Warlock" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="#660066" ForeColor="White"/>
+            <asp:Button ID="warriorCards" runat="server" Text="Warrior" OnClick="classButton_Click" class="btn btn-default classButton" BackColor="Red" ForeColor="White"/>
+            <asp:Button ID="neutrals" runat="server" Text="Neutrals" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="#993300" ForeColor="White"/>
         </div>
 
         <div id="cards"> 
@@ -52,8 +51,9 @@
     </div> 
     <div id="anotherContainer">
         <div id="deckDetails">
-            <asp:textbox runat="server" id="deckName"></asp:textbox>
-            <asp:button runat="server" text="Save Deck" OnClick="SaveButtonClick" />
+            <asp:textbox runat="server" id="deckName" class="form-control" ></asp:textbox>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Only letters and numbers allowed!" ControlToValidate="deckName" ValidationExpression="^[a-zA-Z0-9]+$"></asp:RegularExpressionValidator>
+            <asp:button runat="server" text="Save Deck" OnClick="SaveButtonClick" class="btn btn-success" />
         </div>   
 
     <div id="CurrentDeck">
