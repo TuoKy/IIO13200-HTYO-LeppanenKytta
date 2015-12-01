@@ -34,6 +34,7 @@ public class CardLogic
         //Asetetaan käyttäjä ja korttien luokka
         newDeck.userId = userId;
         newDeck.playerClass = playerClass;
+        newDeck.cardCount = 0;
         //Alustetaan tiedot joita ei vielä ole
         newDeck.name = "";
         newDeck.cards.Clear();
@@ -43,25 +44,33 @@ public class CardLogic
 
     public bool addCard(int cardId)
     {
-        int index = newDeck.cards.FindIndex(x => x.cardId == cardId);
-        if (index == -1)
+        if (newDeck.cardCount < 30)
         {
-            newDeck.cards.Add(new deckHasCard
+            int index = newDeck.cards.FindIndex(x => x.cardId == cardId);
+            if (index == -1)
             {
-                cardId = cardId,
-                count = 1
-            });
-        }
-        else if(newDeck.cards[index].count == 1)
-        {
-            newDeck.cards[index].count = 2;
+                newDeck.cards.Add(new deckHasCard
+                {
+                    cardId = cardId,
+                    count = 1
+                });
+            }
+            else if (newDeck.cards[index].count == 1)
+            {
+                newDeck.cards[index].count = 2;
+            }
+            else
+            {
+                return false;
+            }
+            newDeck.cardCount++;
+            cardsInDeck.Add(cards.Find(x => x.cardId == cardId));
+            return true;
         }
         else
         {
             return false;
         }
-        cardsInDeck.Add(cards.Find(x => x.cardId == cardId));
-        return true;
     }
 
     public void deleteCard(int cardId)
@@ -69,6 +78,7 @@ public class CardLogic
         int index = newDeck.cards.FindIndex(x => x.cardId == cardId);
         if (index >= 0)
         {
+            newDeck.cardCount--;
             cardsInDeck.RemoveAt(cardsInDeck.FindIndex(x => x.cardId == cardId));
             if (newDeck.cards[index].count == 1)
             {

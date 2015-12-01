@@ -18,7 +18,7 @@
                 CssClass="table table-striped table-bordered table-condensed">
 
                 <Columns>
-                    <asp:ImageField DataImageUrlField="img" CssClass="dataGridImg"></asp:ImageField>
+                    <asp:ImageField DataImageUrlField="img" ControlStyle-Width="205"  ControlStyle-Height="310"></asp:ImageField>
                     <asp:BoundField DataField="name" HeaderText="name" ReadOnly="True" />
                     <asp:BoundField DataField="cost" HeaderText="cost" />
                     <asp:BoundField DataField="attack" HeaderText="attack" />

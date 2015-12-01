@@ -13,11 +13,28 @@ public partial class CreateDeck : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            druidCards.Style["display"] = "none";
+            hunterCards.Style["display"] = "none";
+            mageCards.Style["display"] = "none";
+            paladinCards.Style["display"] = "none";
+            priestCards.Style["display"] = "none";
+            rogueCards.Style["display"] = "none";
+            shamanCards.Style["display"] = "none";
+            warlockCards.Style["display"] = "none";
+            warriorCards.Style["display"] = "none";
+
+            String classButtonName = ((string)(Session["class"])).ToLower() + "Cards";
+            Button button = this.Master.FindControl("ContentPlaceHolder1").FindControl(classButtonName) as Button;
+            if (button != null)
+            {
+                button.Style["display"] = "visible";
+            }
+
             logic = new CardLogic();
             Session["logic"] = logic;
             //User id pitää vaihtaa kun saa loginin tehtyä
-            logic.startDeck((string)(Session["Class"]),1);
-            logic.divideAndConquer((string)(Session["Class"]));
+            logic.startDeck((string)(Session["class"]),1);
+            logic.divideAndConquer((string)(Session["class"]));
             setPictures(logic.index);
             GridViewDeck.DataSource = logic.cardsInDeck as IEnumerable<Card>;
             GridViewDeck.DataBind();

@@ -12,9 +12,12 @@ public partial class ChooseClass : System.Web.UI.Page
 
     }
 
-    protected void druidCards_Click(object sender, EventArgs e)
+    protected void button_Click(object sender, EventArgs e)
     {
-        Session["class"] = "Druid";
+        Button button = (Button)sender;
+        string buttonId = button.Text;
+
+        Session["class"] = buttonId;
         Response.Redirect("CreateDeck.aspx");
     }
 }
