@@ -126,6 +126,4 @@ public partial class _Default : System.Web.UI.Page
         logic.divideAndConquer("");
         setPictures(logic.index);
     }
-
-
 }

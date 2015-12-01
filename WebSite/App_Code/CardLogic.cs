@@ -92,6 +92,7 @@ public class CardLogic
         decks = layer.readAllUserDecksFromDB(userId);
     }
 
+    //Settaa kortit muokattavaan pakkaan
     public void setCardsInActiveDeck(int deckId)
     {
         cardsInDeck.Clear();
@@ -104,7 +105,7 @@ public class CardLogic
             }
         }
      }
-
+    //Hae kortit
     private List<Card> getCards()
     {
         List<Card> temp = new List<Card>();

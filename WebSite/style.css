@@ -12,7 +12,7 @@
 #cards{
     position:absolute;
     top:100%;
-    left:10%;
+    left:5%;
     width:80%;
     height:auto;
     margin:0px;
@@ -23,9 +23,12 @@
     padding-bottom:5%;
 }
 
-#currentDeck{
+#CurrentDeck{
     position:absolute;
-    left:200%;
+    left:77%;
+    max-width:25%;
+    max-height:75%;
+    overflow-y:scroll;
 }
 
 #anotherContainer{

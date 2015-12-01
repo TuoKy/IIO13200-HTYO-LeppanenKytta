@@ -26,6 +26,7 @@ public class DataAccessLayer
         //connStr = @"Data Source=db-H3408.vm; Database=mydb; User ID=DotnetHarkka; Password=dotnet";
     }
 
+    //Alun testausta 
     public void testConnection()
     {
         using (MySqlConnection cnn = new MySqlConnection(connStr))
@@ -194,6 +195,8 @@ public class DataAccessLayer
         return cards;
     }
 
+    //Inserttaa kortit tietokantaan, käytettiin kun apilla kutsuttiin
+    //netistä korttien dataa
     public void InsertCardsToDb(List<Card> cards)
     {        
         sql = "INSERT INTO Card (CardName,Cardset,CardType,CardRarity,CardCost,CardAttack,CardHealth,CardText,CardPlayerClass,CardImg)" +  

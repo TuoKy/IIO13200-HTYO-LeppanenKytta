@@ -15,6 +15,7 @@ public partial class CreateDeck : System.Web.UI.Page
         {
             logic = new CardLogic();
             Session["logic"] = logic;
+            hideOtherClasses();
             //User id pitää vaihtaa kun saa loginin tehtyä
             logic.startDeck((string)(Session["Class"]),1);
             logic.divideAndConquer((string)(Session["Class"]));
@@ -27,6 +28,25 @@ public partial class CreateDeck : System.Web.UI.Page
             logic = (CardLogic)(Session["logic"]);
             GridViewDeck.DataSource = logic.cardsInDeck as IEnumerable<Card>;
             GridViewDeck.DataBind();
+        }
+    }
+
+    private void hideOtherClasses()
+    {
+        try
+        {
+            foreach (Button c in Parent.Controls)
+            {
+                if(c.ID != (string)Session["class"])
+                {
+                    c.Enabled = false;
+                }
+            }
+        }
+        catch (Exception)
+        {
+
+            throw;
         }
     }
 
@@ -52,13 +72,9 @@ public partial class CreateDeck : System.Web.UI.Page
         logic.index = i + 7;
     }
 
-    private void hideButtons()
-    {
-        
-    }
-
     protected void GridViewDeck_RowCommand(Object sender, GridViewCommandEventArgs e)
     {
+        
         if (e.CommandName == "DELETE")
         {
             LinkButton lnkDelete = (LinkButton)e.CommandSource;
@@ -66,7 +82,7 @@ public partial class CreateDeck : System.Web.UI.Page
             int temp = logic.cardsInDeck.FindIndex(x => x.name == lnkDelete.CommandArgument);
             int temp2 = logic.cardsInDeck[temp].cardId;
             logic.deleteCard(temp2);
-            GridViewDeck.DataBind();
+            Updatepanel2.Update();
         }
     }
 
@@ -169,5 +185,11 @@ public partial class CreateDeck : System.Web.UI.Page
             logic.saveDeck(deckName.Text);
             Response.Redirect("Default.aspx");
         }
+    }
+
+    protected void lnkDelete_Load(object sender, EventArgs e)
+    {
+        LinkButton btn = (LinkButton)sender;
+        Updatepanel2.Triggers.Add(new AsyncPostBackTrigger { ControlID = btn.UniqueID, EventName="Click"});
     }
 }

@@ -57,7 +57,7 @@
         </div>   
 
     <div id="CurrentDeck">
-            <asp:UpdatePanel runat="server" ID="Updatepanel2">
+            <asp:UpdatePanel runat="server" ID="Updatepanel2" UpdateMode="Always">
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="Image1" EventName="Click" />
                     <asp:AsyncPostBackTrigger ControlID="Image2" EventName="Click" />
@@ -67,14 +67,12 @@
                     <asp:AsyncPostBackTrigger ControlID="Image6" EventName="Click" />
                     <asp:AsyncPostBackTrigger ControlID="Image7" EventName="Click" />
                     <asp:AsyncPostBackTrigger ControlID="Image8" EventName="Click" />
-                    <asp:AsyncPostBackTrigger ControlID="lnkDelete" EventName="GridViewDeck_RowCommand" />
                 </Triggers>
                 <ContentTemplate>
                     <asp:GridView ID="GridViewDeck" runat="server"
                         AutoGenerateColumns="False"
                         CssClass="table table-striped table-bordered table-condensed"
                         OnRowCommand="GridViewDeck_RowCommand" >
-
                         <Columns>
                             <asp:BoundField DataField="name" HeaderText="name" ReadOnly="True" />
                             <asp:BoundField DataField="cost" HeaderText="cost" />
@@ -82,7 +80,7 @@
                             <asp:BoundField DataField="health" HeaderText="health" />
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton runat="server" ID="lnkDelete" CommandArgument='<%#Eval("name") %>'
+                                    <asp:LinkButton runat="server" ID="lnkDelete" OnLoad="lnkDelete_Load" CommandArgument='<%#Eval("name") %>'
                                         CommandName="DELETE">Delete</asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -91,6 +89,6 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-    </div>              
+    </div>         
 </asp:Content>
 
