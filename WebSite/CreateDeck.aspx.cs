@@ -77,7 +77,7 @@ public partial class CreateDeck : System.Web.UI.Page
             LinkButton lnkDelete = (LinkButton)e.CommandSource;
             //int index = Convert.ToInt32(lnkDelete.CommandArgument);
             int temp = logic.cardsInDeck.FindIndex(x => x.name == lnkDelete.CommandArgument);
-            int temp2 = logic.cardsInDeck[temp].cardId;
+            String temp2 = logic.cardsInDeck[temp].cardId;
             logic.deleteCard(temp2);
             Updatepanel2.Update();
         }
@@ -126,7 +126,7 @@ public partial class CreateDeck : System.Web.UI.Page
     {
         ImageButton tempButton = (ImageButton)sender;
         //Tähän voi asettaa jotain tarkistuksia alternateText kentälle
-        if(!logic.addCard(int.Parse(tempButton.AlternateText)))
+        if(!logic.addCard(tempButton.AlternateText))
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AlertBox", "alert('Kortin lisäys epäonnistui!');", true);
         }

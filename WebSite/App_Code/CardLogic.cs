@@ -42,7 +42,7 @@ public class CardLogic
         cardsInDeck.Clear();
     }
 
-    public bool addCard(int cardId)
+    public bool addCard(string cardId)
     {
         if (newDeck.cardCount < 30)
         {
@@ -73,7 +73,7 @@ public class CardLogic
         }
     }
 
-    public void deleteCard(int cardId)
+    public void deleteCard(string cardId)
     {
         int index = newDeck.cards.FindIndex(x => x.cardId == cardId);
         if (index >= 0)

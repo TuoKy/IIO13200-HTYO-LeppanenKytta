@@ -125,6 +125,7 @@ public class DataAccessLayer
                     name = reader["DeckName"].ToString(),
                     playerClass = reader["DeckClass"].ToString(),
                     userId = int.Parse(reader["User_idUser"].ToString()),
+                    cardCount = int.Parse(reader["CardCount"].ToString()),
                     cards = this.cardsInThisDeck(int.Parse(reader["idDeck"].ToString()))
                 });
             }
@@ -154,7 +155,7 @@ public class DataAccessLayer
             {
                 temp.Add(new deckHasCard
                 {
-                    cardId = int.Parse(reader["Card_idCard"].ToString()),
+                    cardId = reader["Card_idCard"].ToString(),
                     count = int.Parse(reader["CardCount"].ToString())
                 });
             }
@@ -182,7 +183,7 @@ public class DataAccessLayer
         {
             cards.Add(new Card
             {
-                cardId = int.Parse(reader["idCard"].ToString()),
+                cardId = reader["idCard"].ToString(),
                 name = reader["CardName"].ToString(),
                 cardSet = reader["CardSet"].ToString(),
                 type = reader["CardType"].ToString(),
