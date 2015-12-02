@@ -42,8 +42,8 @@ public class DataAccessLayer
     */
     public void writeDeckToDB(Deck deck)
     {
-        sql = "INSERT INTO Deck (DeckName,User_idUser,DeckClass)" +
-              "Values (@name, @userId, @deckClass);";
+        sql = "INSERT INTO Deck (DeckName,User_idUser,DeckClass,CardCount)" +
+              "Values (@name, @userId, @deckClass, @cardCount);";
         MySqlConnection conn = new MySqlConnection(connStr);
         MySqlCommand cmd = new MySqlCommand(sql, conn);
         conn.Open();
@@ -52,6 +52,7 @@ public class DataAccessLayer
         cmd.Parameters.AddWithValue("@name", deck.name);
         cmd.Parameters.AddWithValue("@userId", deck.userId);
         cmd.Parameters.AddWithValue("@deckClass", deck.playerClass);
+        cmd.Parameters.AddWithValue("@cardCount", deck.cardCount);
         cmd.ExecuteNonQuery();
         //Haetaan juuri luodun pakan id
         long deckId = cmd.LastInsertedId;
@@ -91,6 +92,7 @@ public class DataAccessLayer
         {
             reader.Read();
             deck.name = reader["DeckName"].ToString();
+            deck.playerClass = reader["DeckClass"].ToString();
             deck.userId = int.Parse(reader["User_idUser"].ToString());
         }
         reader.Close();
@@ -121,6 +123,7 @@ public class DataAccessLayer
                 {
                     deckId = int.Parse(reader["idDeck"].ToString()),
                     name = reader["DeckName"].ToString(),
+                    playerClass = reader["DeckClass"].ToString(),
                     userId = int.Parse(reader["User_idUser"].ToString()),
                     cards = this.cardsInThisDeck(int.Parse(reader["idDeck"].ToString()))
                 });
