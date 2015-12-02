@@ -18,13 +18,7 @@ public class Deck
 
 public class deckHasCard
 {
-    /*
-    public deckHasCard(int i, int j)
-    {
-        cardId = i;
-        count = j;
-    }*/
 
-    public int cardId { get; set; }
+    public string cardId { get; set; }
     public int count { get; set; }
 }

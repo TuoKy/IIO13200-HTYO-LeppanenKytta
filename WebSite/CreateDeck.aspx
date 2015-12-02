@@ -16,7 +16,7 @@
             <asp:Button ID="neutrals" runat="server" Text="Neutrals" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="#993300" ForeColor="White"/>
         </div>
 
-        <div id="cards"> 
+        <div id="cards">
          <asp:ImageButton ID="previous" runat="server" ImageUrl="Images/arrowBack.png" CssClass="arrowStyleLeft" OnClick="previous_Click" />                                                        
              <asp:updatepanel runat="server" id="panel">
                 <Triggers>              

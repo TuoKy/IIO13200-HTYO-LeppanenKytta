@@ -13,6 +13,15 @@
 
         <div>
 
+            <asp:Repeater ID="cardRepeater" runat="server">
+                <ItemTemplate>
+                    <div style="display: inline;">
+                        <img src="<%# Container.DataItem %>" />
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+
+
             <asp:GridView ID="GridViewDeck" runat="server"
                 AutoGenerateColumns="False"
                 CssClass="table table-striped table-bordered table-condensed">
@@ -25,6 +34,8 @@
                     <asp:BoundField DataField="health" HeaderText="health" />
                 </Columns>
             </asp:GridView>
+
+
         </div>
     </div>
 </asp:Content>
