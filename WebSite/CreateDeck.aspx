@@ -72,7 +72,7 @@
                     <asp:GridView ID="GridViewDeck" runat="server"
                         AutoGenerateColumns="False"
                         CssClass="table table-striped table-bordered table-condensed"
-                        OnRowCommand="GridViewDeck_RowCommand" >
+                        OnRowCommand="GridViewDeck_RowCommand" AllowSorting="True" >
                         <Columns>
                             <asp:BoundField DataField="name" HeaderText="name" ReadOnly="True" />
                             <asp:BoundField DataField="cost" HeaderText="cost" />
