@@ -6,7 +6,7 @@
     <div = id="container">
         <asp:Button ID="druidCards"  runat="server" Text="Druid" class="btn btn-default classButton" BackColor="#996633" ForeColor="White" OnClick="button_Click" />
         <asp:Button ID="hunterCards" runat="server" Text="Hunter"   class="btn btn-default classButton" BackColor="#009933" ForeColor="White" OnClick="button_Click" />
-        <asp:Button ID="mageCards" runat="server" Text="Mage"   class="btn btn-default classButton" BackColor="#33CCFF" OnClick="button_Click"/>
+        <asp:Button ID="mageCards" runat="server" Text="Mage"   class="btn btn-default classButton" BackColor="#33CCFF" ForeColor="White" OnClick="button_Click"/>
         <asp:Button ID="paladinCards" runat="server" Text="Paladin"   class="btn btn-default classButton" BackColor="Yellow" OnClick="button_Click"/>
         <asp:Button ID="priestCards" runat="server" Text="Priest"   class="btn btn-default classButton" OnClick="button_Click"/>
         <asp:Button ID="rogueCards" runat="server" Text="Rogue"   class="btn btn-default classButton" BackColor="#666666" ForeColor="White" OnClick="button_Click"/>

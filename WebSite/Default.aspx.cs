@@ -11,6 +11,9 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        //Logic olio tallennetaan sessiooon että sinne tallennettuja tietoja voidaan käyttää sivun
+        //uudelleen rakentumisen jälkeen
         if (!IsPostBack)
         {
             logic = new CardLogic();
@@ -24,9 +27,11 @@ public partial class _Default : System.Web.UI.Page
         }     
     }
     
+
+    //Temp ratkaisu muuttaa 8 seuraavan kuvan imageurlia
+    //Update, ei ksokaan muutettu jäi final solutioniksi
     private void setPictures(int i)
-    {
-                
+    {                
         Image1.ImageUrl = logic.smallCardPool[i].img;
         Image2.ImageUrl = logic.smallCardPool[i + 1].img;
         Image3.ImageUrl = logic.smallCardPool[i + 2].img;
@@ -38,12 +43,8 @@ public partial class _Default : System.Web.UI.Page
         
         logic.index = i + 7;
     }
-
-    private void setPicture()
-    {
-
-    }
-
+    
+    //Hienot kontrollit nuolille
     protected void next_Click(object sender, ImageClickEventArgs e)
     {
         try
@@ -68,62 +69,17 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-    protected void druidCards_Click(object sender, EventArgs e)
+    protected void classButton_Click(object sender, EventArgs e)
     {
-        logic.divideAndConquer("Druid");
-        setPictures(logic.index);
-    }
+        Button button = (Button)sender;
+        string buttonId = button.Text;
 
-    protected void hunterCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Hunter");
-        setPictures(logic.index);
-    }
+        if (buttonId == "Neutrals")
+        {
+            buttonId = "";
+        }
 
-    protected void mageCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Mage");
-        setPictures(logic.index);
-    }
-
-    protected void paladinCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Paladin");
-        setPictures(logic.index);
-    }
-
-    protected void priestCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Priest");
-        setPictures(logic.index);
-    }
-
-    protected void rogueCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Rogue");
-        setPictures(logic.index);
-    }
-
-    protected void shamanCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Shaman");
-        setPictures(logic.index);
-    }
-    protected void warlockCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Warlock");
-        setPictures(logic.index);
-    }
-
-    protected void warriorCards_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("Warrior");
-        setPictures(logic.index);
-    }
-
-    protected void neutrals_Click(object sender, EventArgs e)
-    {
-        logic.divideAndConquer("");
+        logic.divideAndConquer(buttonId);
         setPictures(logic.index);
     }
 }

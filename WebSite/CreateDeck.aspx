@@ -6,7 +6,7 @@
         <div id="navigationTop">
             <asp:Button ID="druidCards" runat="server" Text="Druid" OnClick="classButton_Click" class="btn btn-default classButton" BackColor="#996633" ForeColor="White" />
             <asp:Button ID="hunterCards" runat="server" Text="Hunter" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="#009933" ForeColor="White" />
-            <asp:Button ID="mageCards" runat="server" Text="Mage" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="#33CCFF"/>
+            <asp:Button ID="mageCards" runat="server" Text="Mage" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="#33CCFF" ForeColor="White"/>
             <asp:Button ID="paladinCards" runat="server" Text="Paladin" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="Yellow"/>
             <asp:Button ID="priestCards" runat="server" Text="Priest" OnClick="classButton_Click"  class="btn btn-default classButton"/>
             <asp:Button ID="rogueCards" runat="server" Text="Rogue" OnClick="classButton_Click"  class="btn btn-default classButton" BackColor="#666666" ForeColor="White"/>
