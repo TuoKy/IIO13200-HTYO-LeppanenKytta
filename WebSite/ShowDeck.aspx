@@ -5,9 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="container">
         <div id="deckDetails">
-            <asp:label runat="server" ID="deckName"></asp:label>
+            <asp:label runat="server" ID="deckName" Font-Size="Medium" class="label label-default"></asp:label>
             <br />
-            <asp:label runat="server" ID="deckClass"></asp:label>
+            <br />
+            <asp:label runat="server" ID="deckClass" Font-Size="Medium" class="label label-default"></asp:label>
             <br />
         </div>
 
@@ -16,25 +17,10 @@
             <asp:Repeater ID="cardRepeater" runat="server">
                 <ItemTemplate>
                     <div style="display: inline;">
-                        <img src="<%# Container.DataItem %>" />
+                        <img src="<%# Container.DataItem %>" height="350" width="225" />
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-
-
-            <asp:GridView ID="GridViewDeck" runat="server"
-                AutoGenerateColumns="False"
-                CssClass="table table-striped table-bordered table-condensed">
-
-                <Columns>
-                    <asp:ImageField DataImageUrlField="img" ControlStyle-Width="205"  ControlStyle-Height="310"></asp:ImageField>
-                    <asp:BoundField DataField="name" HeaderText="name" ReadOnly="True" />
-                    <asp:BoundField DataField="cost" HeaderText="cost" />
-                    <asp:BoundField DataField="attack" HeaderText="attack" />
-                    <asp:BoundField DataField="health" HeaderText="health" />
-                </Columns>
-            </asp:GridView>
-
 
         </div>
     </div>

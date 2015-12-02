@@ -16,8 +16,7 @@ public partial class ShowDeck : System.Web.UI.Page
         int deckId = (int)Session["deckId"];
         int deckIndex = logic.decks.FindIndex(x => x.deckId == deckId);
         logic.setCardsInActiveDeck(deckId);
-        //GridViewDeck.DataSource = logic.cardsInDeck as IEnumerable<Card>;
-        //GridViewDeck.DataBind();
+
         deckName.Text = "Deck Name: " + logic.decks[deckIndex].name;
         deckClass.Text = "Deck Class: " + logic.decks[deckIndex].playerClass;
 

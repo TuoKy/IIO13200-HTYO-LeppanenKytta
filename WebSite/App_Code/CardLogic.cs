@@ -124,7 +124,7 @@ public class CardLogic
         List<String> tempUrls = new List<String>();
         int index = 0;
 
-        foreach(Card item in cardsInDeck)
+        foreach(Card item in cardsInSelectedDeck)
         {
             tempUrls.Add(item.img);
             index++;
