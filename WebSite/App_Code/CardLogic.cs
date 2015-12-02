@@ -68,6 +68,7 @@ public class CardLogic
             }
             newDeck.cardCount++;
             cardsInDeck.Add(cards.Find(x => x.cardId == cardId));
+            cardsInDeck.Sort(new cardComparer());
             return true;
         }
         else
@@ -123,6 +124,8 @@ public class CardLogic
     {
         List<String> tempUrls = new List<String>();
         int index = 0;
+
+        cardsInSelectedDeck.Sort(new cardComparer());
 
         foreach(Card item in cardsInSelectedDeck)
         {
