@@ -11,7 +11,14 @@ public partial class BrowseDecks : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        logic = new CardLogic();
+        if (Session["logic"] == null)
+        {
+            logic = new CardLogic();
+            Session["logic"] = logic;
+        }
+        else
+            logic = (CardLogic)Session["logic"];
+
         logic.setDecks(1);
         GridViewDeck.DataSource = logic.decks as IEnumerable<Deck>;
         GridViewDeck.DataBind();

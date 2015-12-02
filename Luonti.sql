@@ -94,3 +94,5 @@ ADD COLUMN `DeckClass` VARCHAR(45) NULL COMMENT '' AFTER `User_idUser`;
 
 ALTER TABLE `mydb`.`deck` 
 ADD COLUMN `CardCount` INT NULL COMMENT '' AFTER `DeckClass`;
+
+INSERT INTO user (UserName,UserPassword) VALUES ('admin','admin');

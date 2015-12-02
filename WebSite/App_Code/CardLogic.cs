@@ -11,11 +11,13 @@ public class CardLogic
     public int index { get; set; }
     public List<Card> cards { get; set; }
     public List<Card> smallCardPool { get; set; }
-
+    
      public List<Deck> decks { get; set; }
-     public List<Card> cardsInDeck { get; set; }
-
+     //Kortit joita on aktiivisessa muokkauksessa
+     public List<Card> cardsInDeck { get; set; }   
     public Deck newDeck { get; set; }
+    //Kortit joita on valitussa pakassa via browse deck
+    public List<Card> cardsInSelectedDeck { get; set; }
 
     private DataAccessLayer layer = new DataAccessLayer();
 
@@ -25,6 +27,7 @@ public class CardLogic
         cards = getCards();
         smallCardPool = new List<Card>();
         cardsInDeck = new List<Card>();
+        cardsInSelectedDeck = new List<Card>();
         newDeck = new Deck();
         newDeck.cards = new List<deckHasCard>();
     }
@@ -105,13 +108,13 @@ public class CardLogic
     //Settaa kortit muokattavaan pakkaan
     public void setCardsInActiveDeck(int deckId)
     {
-        cardsInDeck.Clear();
+        cardsInSelectedDeck.Clear();
 
         foreach (var item in decks.Find(x => x.deckId == deckId).cards)
         {
             for (int i = 0; i<item.count; i++)
             {
-                cardsInDeck.Add(cards.Find(x => x.cardId == item.cardId));
+                cardsInSelectedDeck.Add(cards.Find(x => x.cardId == item.cardId));
             }
         }
      }

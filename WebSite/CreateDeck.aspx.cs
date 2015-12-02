@@ -30,10 +30,17 @@ public partial class CreateDeck : System.Web.UI.Page
                 button.Style["display"] = "visible";
             }
 
-            logic = new CardLogic();
-            Session["logic"] = logic;
+            if (Session["logic"] == null)
+            {
+                logic = new CardLogic();
+                Session["logic"] = logic;
+            }
+            else
+                logic = (CardLogic)Session["logic"];
+
+            Session["cardsInDeck"] = logic.cardsInDeck;
             //User id pitää vaihtaa kun saa loginin tehtyä
-            logic.startDeck((string)(Session["class"]),1);
+           // logic.startDeck((string)(Session["class"]),1);
             logic.divideAndConquer((string)(Session["class"]));
             setPictures(logic.index);
             GridViewDeck.DataSource = logic.cardsInDeck as IEnumerable<Card>;
@@ -42,6 +49,7 @@ public partial class CreateDeck : System.Web.UI.Page
         else
         {
             logic = (CardLogic)(Session["logic"]);
+            logic.cardsInDeck = (List<Card>)(Session["cardsInDeck"]);
             GridViewDeck.DataSource = logic.cardsInDeck as IEnumerable<Card>;
             GridViewDeck.DataBind();
         }

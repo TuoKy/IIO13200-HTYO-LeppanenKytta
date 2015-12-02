@@ -16,8 +16,13 @@ public partial class _Default : System.Web.UI.Page
         //uudelleen rakentumisen jälkeen
         if (!IsPostBack)
         {
-            logic = new CardLogic();
-            Session["logic"] = logic;
+            if (Session["logic"] == null)
+            {
+                logic = new CardLogic();
+                Session["logic"] = logic;
+            }
+            else
+                logic = (CardLogic)Session["logic"];
             logic.divideAndConquer("Druid");
             setPictures(logic.index);
         }
