@@ -115,6 +115,20 @@ public class CardLogic
             }
         }
      }
+
+    public List<String> getCardImageUrls()
+    {
+        List<String> tempUrls = new List<String>();
+        int index = 0;
+
+        foreach(Card item in cardsInDeck)
+        {
+            tempUrls.Add(item.img);
+            index++;
+        }
+        return tempUrls;
+    }
+
     //Hae kortit
     private List<Card> getCards()
     {
